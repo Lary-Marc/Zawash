@@ -1,0 +1,255 @@
+#intro-part{
+    padding: 20px;
+    background-color: rgb(250, 255, 255);
+}
+
+.body {
+    color: #000;
+    overflow-x: hidden;
+    height: fit-content;
+    background-color: #B0BEC5;
+    background-repeat: no-repeat
+}
+div input{
+    padding-left: 10px;
+}
+.card0 {
+   
+    border-radius: 0px
+}
+
+.card2 {
+    margin: 0px 40px
+}
+
+p{
+    color: white;
+}
+
+.border-line {
+    border-right: 1px solid #EEEEEE
+}
+
+.line {
+    height: 1px;
+    width: 45%;
+    background-color: #E0E0E0;
+    margin-top: 10px
+}
+
+.or {
+    width: 10%;
+    font-weight: bold
+}
+
+.text-sm {
+    font-size: 14px !important
+}
+
+::placeholder {
+    color: #000000;
+    opacity: 1;
+    font-weight: 300
+}
+
+:-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+::-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+    
+}
+
+input,
+select {
+    padding: 5px 12px 10px 12px;
+    border: 1px solid rgb(71, 71, 71);
+    border-radius: 8px;
+    margin-bottom: 5px;
+    margin-top: -10px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: inset 0 4px 4px 0 rgb(0 0 0 / 10%);
+    background-color: #FAFBFC;
+    font-size: 14px;
+    letter-spacing: 1px
+}
+
+input:focus,
+select:focus {
+    /* -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important; */
+    /* box-shadow: inset rgb(158, 158, 158) !important; */
+    border: 1px solid #304FFE;
+    outline-width: 0
+}
+
+/* button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+} */
+
+a {
+    color: inherit;
+    cursor: pointer
+
+}
+
+.btn-blue {
+    background-color: #1A237E;
+    width: 150px;
+    color: #fff;
+    border-radius: 2px
+}
+
+.btn-blue:hover {
+    background-color: #000;
+    cursor: pointer
+}
+
+.bg-blue {
+    color: #fff;
+    background-color: #1A237E
+}
+
+@media screen and (max-width: 991px) {
+    .logo {
+        margin-left: 0px
+    }
+
+    /* .image {
+        width: 300px;
+        height: 220px
+    } */
+
+    .border-line {
+        border-right: none
+    }
+
+    .card2 {
+        border-top: 1px solid #EEEEEE !important;
+        margin: 0px 15px
+    }
+}
+
+.fa {
+    padding: 20px;
+    font-size: 20px;
+    height: 35px;
+    width: 30px;
+    float: left;
+    text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+    opacity: 0.7;
+}
+/* .bi::before {
+    display: inline-block;
+    content: "";
+    vertical-align: -.125em;
+    background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z' clip-rule='evenodd'/></svg>");
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  } */
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    color: #3B5998;
+
+}
+
+/* Twitter */
+.fa-twitter {
+    color: #55ACEE;
+
+}
+
+.user-profile__separator {
+    background-color: #a3a3a3;
+    width: 1px;
+    height: 100px;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+         /* .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgb(255 255 255 / 25%) !important;
+        } */
+
+        .section {
+            padding: 40px 0;
+            background: url(images/car-care-4993980_960_720.jpg);
+            background-size: cover;
+            height: auto;
+        }
+
+        h1, h4 {
+            text-align: center;
+            color:rgb(255, 255, 255);
+        }
+
+        h1 {
+            font-family: 'Mate SC', serif;
+            font-weight: 700;
+        }
+
+        #outer-div {
+           padding: 20px 0;
+           background-color: #091e3abd;
+            border-radius: 20px;
+            height: auto;
+            width:50%;
+            
+        }
+
+        label {
+            color: white;
+            display: none;
+        }
+
+        button.btn.btn-block {
+            background-color: #bb0202;
+            color: white;
+        }
+        /* #resize {
+            width: 100%;
+            height : auto;
+            } */
+            
+            #resize {
+        
+            height : 500px;
+            }
+            .card-box {
+                border: 1px solid #ddd;
+                padding: 10px;
+                box-shadow: 0px 0px 10px 0px #c5c5c5;
+                margin-bottom: 30px;
+                float: left;
+                border-radius: 10px;
+            }
+            .card-box .card-thumbnail {
+                max-height: 200px;
+                overflow: hidden;
+                border-radius: 10px;
+                transition: 2s;
+            }
+            .card-box .card-thumbnail:hover {
+                transform: scale(1.2);
+            }
+            .card-box h3 a {
+                font-size: 20px;
+                text-decoration: none;
+            }

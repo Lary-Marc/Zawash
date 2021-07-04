@@ -1,0 +1,162 @@
+extends layout
+
+block content
+    body
+        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+            a.navbar-brand(href='/dashboard') CarWash
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', 
+            aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+
+            .collapse.navbar-collapse(id='navbarSupportedContent')
+                ul.navbar-nav.mr-auto
+                    li.nav-item.active
+                        a.nav-link(href='/index') Home
+                    
+                ul.navbar-nav.float-right
+                    li.nav-item
+                        a.nav-link(href='/registration') Register
+                    li.nav-item
+                        a.nav-link(href='/login') LogIn
+
+        div(id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel")
+            div.carousel-inner
+                div(class="carousel-item active" data-bs-interval="1500")
+                    img(id="resize" src="/images/elephant-2004490__340.jpg" class="d-block w-100" alt="...")
+                
+            
+                div(class="carousel-item" data-bs-interval="1000")
+                    img#resize(src="https://media.gettyimages.com/photos/detail-of-a-sponge-over-a-black-car-during-a-car-wash-picture-id171143980?k=6&m=171143980&s=612x612&w=0&h=lx5S1C02HI-ihdK9lJcgPQiz62NAo4ad9EX0Yw6-Ez0="
+                        class="d-block w-100" alt="...")
+                
+                div.carousel-item
+                    img#resize(src="https://cdn.pixabay.com/photo/2020/05/08/08/49/wash-5144822__340.jpg"
+                        class="d-block w-100" alt="...")
+                
+                div.carousel-item
+                    img#resize(src="https://cdn.pixabay.com/photo/2016/11/14/02/34/auto-1822415__340.jpg"
+                        class="d-block w-100" alt="...")
+                
+            
+            button(class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev" style="background:#fff0; border:0px;")
+                span(class="carousel-control-prev-icon" aria-hidden="true")
+                span.visually-hidden(style="color:black; font-weight:bold;") Previous
+            
+            button(class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next" style="background:#fff0; border:0px;")
+               
+                span.visually-hidden(style="color:black; font-weight:bold;") Next
+                span(class="carousel-control-next-icon" aria-hidden="true")
+            
+        
+
+        
+        div.container
+            div.row
+                div.col-12
+                    h2.offset-md-4.mt-4.mb-4 Our Packages
+                
+                div.col-md-6.col-lg-4
+                    
+                    div.card-box
+                        div.card-thumbnail
+                            img(src="https://media.istockphoto.com/photos/toyota-yaris-picture-id1206979086?b=1&k=6&m=1206979086&s=170667a&w=0&h=vWKkdnWzZLxyeSREPEOQ-FxSD-gQEvHlac4j0CygvN8="
+                                class="img-fluid" alt="")
+                        
+                        h3
+                            a(href="#" class="mt-2 text-danger") Small Cars
+                        p.text-secondary Small sized cars include Vitz, Wish, Premio, Mark-X, etc 
+                        a(href="#" class="btn btn-sm btn-danger float-right") Read more
+                        ul.list-group.list-group-flush
+                            li.list-group-item UGX 15,000
+                        
+                    
+                
+
+                div.col-md-6.col-lg-4
+                
+                    div.card-box
+                        div.card-thumbnail
+                            img(src="https://cdn.pixabay.com/photo/2014/11/06/19/39/auto-519826__340.jpg" class="img-fluid"
+                                alt="")
+                        
+                        h3
+                            a(href="#" class="mt-2 text-danger") Full Car Wash
+                        p.text-secondary This will include washing the outside and inside of the car plus the engine
+                        a(href="#" class="btn btn-sm btn-danger float-right") Read more 
+                        ul.list-group.list-group-flush
+                            li.list-group-item UGX 40,000
+                        
+                    
+                
+
+                div.col-md-6.col-lg-4
+                    
+                    div.card-box
+                        div.card-thumbnail
+                            img(src="https://cdn.pixabay.com/photo/2016/08/23/23/30/toy-rocks-1615833__340.jpg"
+                                class="img-fluid" alt="")
+                        
+                        h3
+                            a(href="#" class="mt-2 text-danger") Medium Cars
+                        p.text-secondary Medium sized cars include Land Cruiser, Benz ML, etc
+                        a(href="#" class="btn btn-sm btn-danger float-right") Read more
+                        ul.list-group.list-group-flush
+                            li.list-group-item UGX 20,000
+                        
+                    
+                
+
+                div.col-md-6.col-lg-4
+                   
+                    div.card-box
+                        div.card-thumbnail
+                            img(src="https://media.istockphoto.com/photos/washing-semi-truck-picture-id993085714?b=1&k=6&m=993085714&s=170667a&w=0&h=9VdhbtBqP_c9b0KL8sGA_MvDKzbady-7lZ79FzWfXcc="
+                                class="img-fluid" alt="")
+                        
+                        h3
+                            a(href="#" class="mt-2 text-danger") Lorries
+                        p.text-secondary Lorries include Dyna, Canter, fuso, etc
+                        a(href="#" class="btn btn-sm btn-danger float-right") Read more
+                        ul.list-group.list-group-flush
+                            li.list-group-item UGX 30,000
+                    
+                
+
+                div.col-md-6.col-lg-4
+                    div.card-box
+                        div.card-thumbnail
+                            img(src="https://media.istockphoto.com/photos/car-detailing-series-cleaning-car-engine-picture-id543601188?k=6&m=543601188&s=612x612&w=0&h=bNF5CbOqgdmDfrKUr9WvyJ9KetlyCmx2ujRk3bSZ9pU="
+                                class="img-fluid" alt="")
+                        h3
+                            a(href="#" class="mt-2 text-danger") Engine Wash
+                        p.text-secondary The engine of a vehicle will be thoroughly cleaned
+                        a(href="#" class="btn btn-sm btn-danger float-right") Read more
+                        ul.list-group.list-group-flush
+                            li.list-group-item UGX 10,000
+                    
+                
+
+                div.col-md-6.col-lg-4
+                    div.card-box
+                        div.card-thumbnail
+                            img(src="https://cdn.pixabay.com/photo/2021/05/20/20/23/bmw-6269576__340.png" class="img-fluid"
+                                alt="")
+                        h3
+                            a(href="#" class="mt-2 text-danger") Motorcycles
+                        p.text-secondary Motocycles are two or three wheeled motor vehicles like Bajaj, Tuku-tuku, sport bikes etc
+                        a(href="#" class="btn btn-sm btn-danger float-right") Read more 
+                        ul.list-group.list-group-flush
+                            li.list-group-item UGX 6,000
+                    
+                footer
+                    p(style="color:Black;") Copyright &copy; 2021. All rights reserved
+            
+        
+        script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+            integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+            crossorigin="anonymous")
