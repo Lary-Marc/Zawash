@@ -2,23 +2,6 @@ extends layout
 
 block content
     body
-        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-            a.navbar-brand(href='/dashboard') CarWash
-            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', 
-            aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-                span.navbar-toggler-icon
-
-            .collapse.navbar-collapse(id='navbarSupportedContent')
-                ul.navbar-nav.mr-auto
-                    li.nav-item.active
-                        a.nav-link(href='/index') Home
-                    
-                ul.navbar-nav.float-right
-                    li.nav-item
-                        a.nav-link(href='/registration') Register
-                    li.nav-item
-                        a.nav-link(href='/login') LogIn
-
         div(id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel")
             div.carousel-inner
                 div(class="carousel-item active" data-bs-interval="1500")
@@ -45,7 +28,7 @@ block content
             
             button(class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
                 data-bs-slide="next" style="background:#fff0; border:0px;")
-               
+                
                 span.visually-hidden(style="color:black; font-weight:bold;") Next
                 span(class="carousel-control-next-icon" aria-hidden="true")
             
@@ -109,7 +92,7 @@ block content
                 
 
                 div.col-md-6.col-lg-4
-                   
+                    
                     div.card-box
                         div.card-thumbnail
                             img(src="https://media.istockphoto.com/photos/washing-semi-truck-picture-id993085714?b=1&k=6&m=993085714&s=170667a&w=0&h=9VdhbtBqP_c9b0KL8sGA_MvDKzbady-7lZ79FzWfXcc="
@@ -150,9 +133,7 @@ block content
                         ul.list-group.list-group-flush
                             li.list-group-item UGX 6,000
                     
-                footer
-                    p(style="color:Black;") Copyright &copy; 2021. All rights reserved
-            
+                
         
         script(src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
             integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

@@ -1,22 +1,7 @@
 extends layout
 
 block content
-    body
-        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-            a.navbar-brand(href='/dashboard') CarWash
-            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-                span.navbar-toggler-icon
-
-            .collapse.navbar-collapse(id='navbarSupportedContent')
-                ul.navbar-nav.mr-auto
-                    li.nav-item.active
-                        a.nav-link(href='/index') Home
-                    
-                ul.navbar-nav.float-right
-                    li.nav-item
-                        a.nav-link(href='/registration') Register
-                    li.nav-item
-                        a.nav-link(href='/login') LogIn
+    body.body
         div.section
             div.row.justify-content-center
                 div.col-md-6#outer-div
@@ -79,9 +64,8 @@ block content
 
                                 div.col.form-group
                                     center
-                                        button.btn.btn-danger.btn-lg Register
-                            footer
-                            p Copyright &copy; 2021. All rights reserved
+                                        button.btn.btn-danger.btn-lg Submit
+                            
         
 
                             

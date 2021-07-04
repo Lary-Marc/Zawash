@@ -1,0 +1,33 @@
+
+extends layout
+
+block content
+    body(style="background:rgb(6, 10, 19);")
+         div.row.justify-content-center
+            div.col-md-6
+                div.card-body
+                    header.card-header(style="background:blue;")
+                        h4.card-title(style="color:white;") Inventory Capture 
+                    form(method="POST" action='/hello')
+                        div.form.offset-md-3(style="padding-top:20px;")
+                            div.form-row(style="padding:5px 60px 0 10px;")
+                                div.col.form-group
+                                    h5(style="padding-bottom:5px;color:white;") Item Purchased 
+                                    input.form-control(name="item" id="item" style="width:90%;")
+                            div.form-row(style="padding:0px 10px;")
+                                h5(style="padding-bottom:5px; color:white;") Price
+                                div.input-group.form-field
+                                    
+                                    span.input-group-text#basic-addon1(style="color: blanchedalmond; background-color: rgb(0, 0, 0); margin-top: -10px; width: 50px; height: 38px; border-radius: 5px; border: 1px;") UGX
+                                    input(name="price" type="number" id="price"
+                                        aria-label="" aria-describedby="basic-addon1"
+                                        style="width: 70%; border-radius: 5px; height: 38px;")
+                                    div
+                                        small(style="color: red;")
+                            div.form-row(style="padding:5px 60px 0 10px;")
+                                div.col.form-group
+                                    h5(style="padding-bottom:5px;color:white;") Date
+                                    input.form-control(name="date" id="date" type="date" style="width:90%;")
+                            
+                            div.offset-md-3
+                                button.btn.btn-primary.btn-lg(style="width=:250px;") Submit

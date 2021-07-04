@@ -39,7 +39,7 @@ app.get('/index', (req, res) => {
   
   app.get('/registration', (req, res) => {
     res.render('registration', {
-      title: 'Register'
+      title: 'Register of cars'
     });
   });
   app.post("/registration",(req,res)=>{
@@ -47,9 +47,17 @@ app.get('/index', (req, res) => {
     res.send("The data has been submitted")
 })
 
+app.get('/sign_up', (req, res) => {
+  res.render('sign_up');
+});
+app.post("/sign_up",(req,res)=>{
+  console.log(req.body)
+  res.send("The data has been submitted")
+})
+
 app.get('/signup', (req, res) => {
   res.render('signup', {
-    title: 'SignUp'
+    title: 'Registration of Employees'
   });
 });
 app.post("/signup",(req,res)=>{
@@ -63,9 +71,23 @@ app.get('/login', (req, res) => {
 });
 app.post("/login",(req,res)=>{
   console.log(req.body)
-  res.send("The data has been submitted")
 })
-
+app.get('/dashboard', (req, res) => {
+  res.render('dashboard', {
+    title: 'Dashboard'
+  });
+});
+app.post("/dashboard",(req,res)=>{
+  console.log(req.body)
+})
+app.get('/inventory', (req, res) => {
+  res.render('inventory', {
+    title: 'Inventory'
+  });
+});
+app.post("/inventory",(req,res)=>{
+  console.log(req.body)
+})
 
 
 //routing

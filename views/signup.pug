@@ -1,109 +1,86 @@
 extends layout
 
 block content
-    body(class="body" style="background-color: rgb(61, 64, 255);")
-        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-            a.navbar-brand(href='/dashboard') CarWash
-            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', 
-            aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-                span.navbar-toggler-icon
-
-            .collapse.navbar-collapse(id='navbarSupportedContent')
-                ul.navbar-nav.mr-auto
-                    li.nav-item.active
-                        a.nav-link(href='/index') Home
+    body(style="background-color:rgb(6, 10, 19);")
+        center
+            div.container-fluid.px-1.px-md-5.px-lg-1.px-xl-5.py-5.mx-auto(style="background-color:rgb(6, 10, 19); height: auto; margin:0 30px;")
+                form.form#signup(method="POST" action='/signup')
                     
-                ul.navbar-nav.float-right
-                    li.nav-item
-                        a.nav-link(href='/registration') Register
-                    li.nav-item
-                        a.nav-link(href='/login') LogIn
-
-        div.container-fluid.px-1.px-md-5.px-lg-1.px-xl-5.py-5.mx-auto(style="background-color:rgb(61, 64, 255) ; height: 570px;")
-            form.form#signup(method="POST" action='/signup')
-                div.card.card0.border-0(style="background-color: rgb(61, 64, 255);")
-                    div.row.flex
-                        div.col-lg-5(style="background-color: rgb(61, 64, 255); padding: 140px 0px 0px 0px; margin-left: 90px;")
-                            div.card1.pb-5(style=" height: 200px; background-color: rgb(100, 139, 184);padding-top: 30px;")
-                                div
-                                    h4(style="text-align: center; margin-top: 20px;") Already have an account?
-
-                                div.row.justify-content-center(style="padding-top: 10px;") 
-                                    a.btn.btn-light(href="/login" role="button") LogIn
+                    div.col-lg-6(style="background-color: rgb(9, 16, 36); margin-top: -10px; margin-right: 16px; margin-bottom: 10px; padding-right: 10px;")
                     
-                        div.col-lg-6(style="background-color: rgb(61, 64, 255); margin-top: -10px; margin-right: 16px; margin-bottom: 10px; padding-right: 10px;")
+                        div(class="card2 card border-0 px-4 py-5" style="height: auto; margin-top: -30px;background-color:rgba(9, 16, 36, 0.822);")
+                            h1(style="color:White; padding-bottom: -30px; margin-top:-30px;") ZaWash Washing Bay
+                            h4.card-title Register Car Washer 
                         
-                            div(class="card2 card border-0 px-4 py-5" style="height: auto; margin-top: -30px;")
-                                h1(style="color: black; padding-bottom: -30px;") ZaWash Washing Bay
+                            div(class=" mb-4 px-3" style="display: flex; margin-bottom: 0px; float:left;")
+
+                                h6(style="padding-top: 20px; color:white;") Sign up with
+                                div(style="padding-top:20px; padding-left:10px;")
+                                    svg(xmlns="http://www.w3.org/2000/svg" color="cornflowerblue" width="22" height="22" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16")
+                                        path(d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z")
+
+                                div(style="padding-top:20px; padding-left:10px;")
+                                    svg(xmlns="http://www.w3.org/2000/svg" color="cornflowerblue" width="22" height="22" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16")
+                                        path(d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z")
+
+
+                            div.row.px-3.mb-4(style="margin-top:-10px;")
+                                div.line
+                                small.or.text-center(style="color:white;") Or
+                                div.line
+
+                            div.form-field
+                                small(style="color: rgb(243, 26, 26);")
+                                label.mb-1
+                                input.mb-4(type="text" name="username" id="username" placeholder="Enter name")
+
+                            div.row.px-3.form-field
+                                small(style="color: rgb(243, 26, 26);")
+                                label.mb-1
+                                input.mb-4(type="text" name="email" id="email" placeholder="Enter a valid email address")
+
+                            div.row(style="padding-bottom: 13px; padding-top: -10px;")
+                                div.col-md-6.col-sm-12
+                                    div.form-field
+                                        label.mb-1
+                                        input.mb-4(type="text" name="nin" id="nin" placeholder="Enter NIN number")
+                                        small(style="color: rgb(243, 26, 26);")
                             
-                                div(class=" mb-4 px-3" style="display: flex; margin-bottom: 10px; float:left;")
-
-                                    h6(style="padding-top: 20px;") Sign up with
-                                    div(style="padding-top:20px; padding-left:10px;")
-                                        svg(xmlns="http://www.w3.org/2000/svg" color="cornflowerblue" width="22" height="22" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16")
-                                            path(d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z")
-
-                                    div(style="padding-top:20px; padding-left:10px;")
-                                        svg(xmlns="http://www.w3.org/2000/svg" color="cornflowerblue" width="22" height="22" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16")
-                                            path(d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z")
-
-
-                                div.row.px-3.mb-4
-                                    div.line
-                                    small.or.text-center Or
-                                    div.line
-
-                                div.form-field
-                                    small(style="color: rgb(243, 26, 26);")
-                                    label.mb-1
-                                    input.mb-4(type="text" name="username" id="username" placeholder="Enter a your name")
-
-                                div.row.px-3.form-field
-                                    small(style="color: rgb(243, 26, 26);")
-                                    label.mb-1
-                                    input.mb-4(type="text" name="email" id="email" placeholder="Enter a valid email address")
-        
-                                div.row(style="padding-bottom: 13px; padding-top: -10px;")
-                                    div.col-md-6.col-sm-12
-                                        div.form-field
-                                            label.mb-1
-                                            input.mb-4(type="text" name="nin" id="nin" placeholder="Enter your NIN number")
-                                            small(style="color: rgb(243, 26, 26);")
+                                div.col-md-6.col-sm-12
+                                    div.form-field
+                                        label.mb-1
+                                        input.mb-4(type="date" name="age" id="age" placeholder="Enter birth date" max="2003-12-01")
+                                        small(style="color: rgb(243, 26, 26);")
                                 
-                                    div.col-md-6.col-sm-12
-                                        div.form-field
-                                            label.mb-1
-                                            input.mb-4(type="text" name="age" id="age" placeholder="Enter your birth date" max="2003-12-01")
-                                            small(style="color: rgb(243, 26, 26);")
-                                    
-                                div.row
-                                    div.col-md-6.col-sm-12(style="padding-bottom: 13px; margin-top: -15px;")
-                                        div.form-field
-                                            label.mb-1
-                                            select(id="type" name="type")
-                                                option(value="none" selected disabled hidden) Employee Type
-                                                option(value="") Full-Time
-                                                option(value="") Part-Time
+                            div.row
+                                div.col-md-6.col-sm-12(style="padding-bottom: 13px; margin-top: -15px;")
+                                    div.form-field
+                                        label.mb-1
+                                        select(id="type" name="type")
+                                            option(value="none" selected disabled hidden) Employee Type
+                                            option(value="") Full-Time
+                                            option(value="") Part-Time
+                                        small(style="color: red;")
+                                
+                                div.col-md-6.col-sm-12(style="padding-bottom: 13px; margin-top: -15px;")
+                                    div.input-group.form-field(style="padding-bottom: 10px; padding-top: 5px;")
+                                        label.mb-1
+                                        span.input-group-text#basic-addon1(style="color: blanchedalmond; background-color: rgb(0, 0, 0); margin-top: -10px; width: 50px; height: 38px; border-radius: 5px; border: 1px;") +256
+                                        input(name="telephone" type="text" id="telephone"
+                                            aria-label="" aria-describedby="basic-addon1"
+                                            placeholder="Telephone number"
+                                            style="width: 75%; border-radius: 5px; height: 38px;")
+                                        div
                                             small(style="color: red;")
-                                    
-                                    div.col-md-6.col-sm-12(style="padding-bottom: 13px; margin-top: -15px;")
-                                        div.input-group.form-field(style="padding-bottom: 10px; padding-top: 5px;")
-                                            label.mb-1
-                                            span.input-group-text#basic-addon1(style="color: blanchedalmond; background-color: rgb(0, 0, 0); margin-top: -10px; width: 50px; height: 38px; border-radius: 5px; border: 1px;") +256
-                                            input(name="telephone" type="text" id="telephone"
-                                                aria-label="Enter Your Telephone number" aria-describedby="basic-addon1"
-                                                placeholder="Enter Your Telephone number"
-                                                style="width: 75%; border-radius: 5px; height: 38px;")
-                                            div
-                                                small(style="color: red;")
-                                div.row(style="padding-bottom: 13px; padding-top: -10px;")    
-                                    div.row.px-3.form-field(style=" margin-left: 0px; width:50%")
+                            div.row(style="padding-top: 13px;") 
+                                div.col-md-6.col-sm-12(style="padding-bottom: 13px; margin-top: -15px;")   
+                                    div.form-field
                                         small(style="color: rgb(243, 26, 26);")
                                         label.mb-1
                                         input(type="text" name="residence" placeholder="Enter residence" id="residence")
 
-                                    
-                                    div.row.px-3.form-field(style=" margin-left: 0px; width:50%")
+                                div.col-md-6.col-sm-12(style="padding-bottom: 13px; margin-top: -15px;")
+                                    div.form-field
                                         small(style="color: rgb(243, 26, 26);")
                                         label.mb-1
                                         select(id="gender" name="gender")
@@ -111,19 +88,9 @@ block content
                                             option(value="") Male
                                             option(value="") Female
                                             small(style="color: red;")
-                                div.row(style="padding-bottom: 13px; padding-top: -10px;")    
-                                    div.row.px-3.form-field(style="padding-bottom: 13px; margin-left: 0px; width:50%;")
-                                        small(style="color: rgb(243, 26, 26);")
-                                        label.mb-1
-                                        input(type="password" name="password" placeholder="Enter password" id="password")
+                            
+                            div.row.mb-3.px-3(style="padding-top: 25px;")
+                                input.btn.btn-primary(type="submit" value="Sign Up" style="border-radius:15px;")
+                                a(href="login")
 
-                                    
-                                    div.row.px-3.form-field(style="padding-bottom: 13px; margin-left: 0px; width:50%")
-                                        small(style="color: rgb(243, 26, 26);")
-                                        label.mb-1
-                                        input(type="password" name="password" placeholder="Confirm password" id="confirm-password")
-                                
-
-                                div.row.mb-3.px-3(style="padding-top: 10px;")
-                                    input.btn.btn-primary(type="submit" value="Sign Up")
-                                    a(href="login")
+                

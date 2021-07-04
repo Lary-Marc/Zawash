@@ -1,0 +1,121 @@
+extends layout
+
+block content
+    body
+        #intro-part.container-lg
+            .row
+                .col.offset-md-4
+                    h3 Quick Statistics
+            .row.offset-md-1
+                .col-md-2
+                    .card
+                        .card-body
+                            h5.card-title Small Cars Washed
+                        ul.list-group.list-group-flush
+                            li.list-group-item 15
+                .col-md-2
+                    .card
+                        .card-body
+                            h5.card-title Big Cars Washed
+                        ul.list-group.list-group-flush
+                            li.list-group-item 15
+                .col-md-2
+                    .card
+                        .card-body
+                            h5.card-title Full Car wash
+                        ul.list-group.list-group-flush
+                            li.list-group-item 5
+                .col-md-2
+                    .card
+                        .card-body
+                            h5.card-title Engines Washed
+                        ul.list-group.list-group-flush
+                            li.list-group-item 25
+                .col-md-2
+                    .card
+                        .card-body
+                            h5.card-title Bodabodas Washed
+                        ul.list-group.list-group-flush
+                            li.list-group-item 15
+                    
+        div.col-md-6.col-lg-4.offset-md-4
+            div.card-box
+                div.card-thumbnail
+                    img(src="https://previews.123rf.com/images/engkritchaya/engkritchaya1807/engkritchaya180700005/104842151-car-wash-equipment-or-car-cleaning-product-such-as-microfiber-tank-and-pressure-washer-and-glass-cle.jpg" class="img-fluid"
+                        alt="")
+                
+                h3
+                    a(class="mt-2 text-danger") Inventory Capture
+                
+                a(href="/inventory" class="btn btn-sm btn-danger float-right") Details 
+                ul.list-group.list-group-flush
+                    li.list-group-item 
+
+
+
+        .container(style='padding-top: 350px;')
+            h3 Cars in the washing
+            .row
+                .col
+                    table.table.table
+                        thead.thead-dark(style='background-color: black; color: white;')
+                            tr
+                                th(scope='col') #
+                                th(scope='col') Number Plate
+                                th(scope='col') Arrived
+                                th(scope='col') Owner
+                                th(scope='col') Phone No.
+                                th(scope='col') Washer
+                        tbody
+                            tr
+                                th(scope='row') 1
+                                td jack
+                                td 7:30am
+                                td lary
+                                td 0770305678
+                                td dan
+                            tr
+                                th(scope='row') 2
+                                td jack
+                                td 7:30am
+                                td lary
+                                td 0770305678
+                                td dan
+                            tr
+                                th(scope='row') 3
+                                td jack
+                                td 7:30am
+                                td lary
+                                td 0770305678
+                                td dan
+        .container(style='padding-top: 20px;')
+            h3 Payment Structure
+            .row
+                .col
+                    table.table.table
+                        thead.thead-dark(style='background-color: black; color: white;')
+                            tr
+                                th(scope='col') #
+                                th(scope='col') Washer
+                                th(scope='col') Cars washed
+                                th(scope='col') wages per car
+                                th(scope='col') Total amount
+                        tbody
+                            tr
+                                th(scope='row') 1
+                                td jack
+                                td 2
+                                td 3000
+                                td 6000
+                            tr
+                                th(scope='row') 2
+                                td jack
+                                td 2
+                                td 3000
+                                td 6000
+                            tr
+                                th(scope='row') 3
+                                td jack
+                                td 2
+                                td 3000
+                                td 6000
