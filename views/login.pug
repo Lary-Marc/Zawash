@@ -7,10 +7,18 @@ block content
   body
     #login-box.col-lg-8
       .left
-        h1 Log In to continue
-        form(action='/registration' method='post')
-          input(type='email' name='email' placeholder='E-mail')
-          input(type='password' name='password' placeholder='Password')
+        strong
+          h1 ZaWash Washing Bay
+        h3 Log In to continue
+        form#login(action='/registration' method='post')
+          div
+            small(style="color:red;")
+            input(type='email' name='email' placeholder='E-mail' id="email")
+            
+          div
+            small(style="color:red;")
+            input(type='password' name='password' placeholder='Password' id="password")
+            
           div.g-3.align-items-left
             div.mb-3
                 div.form-check
@@ -23,7 +31,7 @@ block content
                     a(href="" style="margin-right: 40px ;") Forgot Password?
                    
 
-          a(class="btn btn-success" href="/registration" role="button" style="margin-top: 20px;") LogIn
+          button(class="btn btn-success" href="/registration" role="submit" style="margin-top: 20px;") LogIn
       .right
         span.loginwith
           | Log In with
@@ -34,3 +42,4 @@ block content
         button.social-signup.twitter Sign up with Twitter
         button.social-signup.google Sign up with Google+
       .or OR
+    script(src="log-in.js")

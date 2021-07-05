@@ -15,9 +15,9 @@ body {
 
 #login-box {
   position: relative;
-  margin: 5% auto;
+  margin: 3% auto;
   width: 670px;
-  height: 420px;
+  height: 460px;
   background: #FFF;
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -30,13 +30,20 @@ body {
   box-sizing: border-box;
   padding: 40px;
   width: 300px;
-  height: 400px;
+  height: 460px;
 }
 
 h1 {
   margin: 0 0 20px 0;
+  font-weight: bolder;
+  font-size: 32px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #32508E;
+}
+h3 {
+  margin: 0 0 20px 0;
   font-weight: 300;
-  font-size: 26px;
+  font-size: 17px;
   font-family: bold;
 }
 
@@ -112,7 +119,7 @@ input[type="submit"]:active {
   box-sizing: border-box;
   padding: 40px;
   width: 300px;
-  height: 420px;
+  height: 460px;
   background: url('https://cdn.pixabay.com/photo/2016/05/17/03/50/washing-car-1397382__480.jpg');
   background-size: cover;
   background-position: center;

@@ -4,7 +4,7 @@
 var emailEl = document.querySelector('#email');
 var passwordEl = document.querySelector('#password');
 
-var form = document.querySelector('#signin')
+var form = document.querySelector('#login')
 
 
 
@@ -101,6 +101,6 @@ form.addEventListener('submit', function (e) {
 
     // submit to the server if the form is valid
     if (isFormValid) {
-     window.location.href="register.html"
+    //  window.location.href="register.html"
     }
 });

@@ -8,12 +8,12 @@ block content
                 div.card-body
                     header.card-header(style="background:blue;")
                         h4.card-title(style="color:white;") Inventory Capture 
-                    form(method="POST" action='/hello')
+                    form(method="POST" action='/inventory')
                         div.form.offset-md-3(style="padding-top:20px;")
                             div.form-row(style="padding:5px 60px 0 10px;")
                                 div.col.form-group
                                     h5(style="padding-bottom:5px;color:white;") Item Purchased 
-                                    input.form-control(name="item" id="item" style="width:90%;")
+                                    input.form-control(name="item" id="item" style="width:92%;")
                             div.form-row(style="padding:0px 10px;")
                                 h5(style="padding-bottom:5px; color:white;") Price
                                 div.input-group.form-field
@@ -27,7 +27,7 @@ block content
                             div.form-row(style="padding:5px 60px 0 10px;")
                                 div.col.form-group
                                     h5(style="padding-bottom:5px;color:white;") Date
-                                    input.form-control(name="date" id="date" type="date" style="width:90%;")
+                                    input.form-control(name="date" id="date" type="date" style="width:92%;")
                             
                             div.offset-md-3
-                                button.btn.btn-primary.btn-lg(style="width=:250px;") Submit
+                                button.btn.btn-primary.btn-lg(type="submit" style="width=:250px;") Submit

@@ -1,15 +1,19 @@
 //(1. dependencies)
 const express = require('express'); 
 const path = require('path');
+const registerRoutes = require('./routes/registerRoutes')
+const loginRoutes = require('./routes/loginRoutes')
+const signupRoutes = require('./routes/signupRoutes')
+const inventoryRoutes = require('./routes/inventoryRoutes')
+const homeRoutes = require('./routes/homeRoutes')
+const dashRoutes = require('./routes/dashRoutes')
 //instatiate the express library and assign it to var app
 //(2. instatiations)
 const app = express(); 
 
-
 //3. configurations
 app.set('view engine', 'pug');
 app.set('views', './views');
-
 
 
 // (4. middleware)
@@ -20,75 +24,26 @@ app.use(express.urlencoded({extended: true}))
 
  // custom middleware to log the time of the current request
 app.use('/registration',(req, res, next) => {
-  console.log("A new request received at " + Date.now());
-//app.use is used to add a middleware
-  // This function call tells that more processing is
-  // required for the current request and is in the next middleware
-  
+  console.log("A new request received at " + Date.now());  
   next();  
 });
+
+
 //routes
-app.get('/index', (req, res) => {
-  res.render('index', {
-    title: 'Home'
-  });
-});
+app.use('/registration', registerRoutes)
+app.use('/index', homeRoutes)
+app.use('/dashboard', dashRoutes)
+app.use('/inventory', inventoryRoutes)
+app.use('/login', loginRoutes)
+app.use('/signup', signupRoutes)
+
+
+
+
   app.get('/hello', (req, res) => {
     res.render('register');
   });
   
-  app.get('/registration', (req, res) => {
-    res.render('registration', {
-      title: 'Register of cars'
-    });
-  });
-  app.post("/registration",(req,res)=>{
-    console.log(req.body)
-    res.send("The data has been submitted")
-})
-
-app.get('/sign_up', (req, res) => {
-  res.render('sign_up');
-});
-app.post("/sign_up",(req,res)=>{
-  console.log(req.body)
-  res.send("The data has been submitted")
-})
-
-app.get('/signup', (req, res) => {
-  res.render('signup', {
-    title: 'Registration of Employees'
-  });
-});
-app.post("/signup",(req,res)=>{
-  console.log(req.body)
-  res.send("The data has been submitted")
-})
-app.get('/login', (req, res) => {
-  res.render('login', {
-    title: 'LogIn'
-  });
-});
-app.post("/login",(req,res)=>{
-  console.log(req.body)
-})
-app.get('/dashboard', (req, res) => {
-  res.render('dashboard', {
-    title: 'Dashboard'
-  });
-});
-app.post("/dashboard",(req,res)=>{
-  console.log(req.body)
-})
-app.get('/inventory', (req, res) => {
-  res.render('inventory', {
-    title: 'Inventory'
-  });
-});
-app.post("/inventory",(req,res)=>{
-  console.log(req.body)
-})
-
 
 //routing
 

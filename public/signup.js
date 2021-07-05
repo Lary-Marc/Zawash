@@ -3,8 +3,8 @@
 var typeEl = document.querySelector('#type')
 var usernameEl = document.querySelector('#username');
 var emailEl = document.querySelector('#email');
-var passwordEl = document.querySelector('#password');
-var confirmPasswordEl = document.querySelector('#confirm-password');
+
+
 var dObEl = document.querySelector('#age');
 var form = document.querySelector('#signup')
 var nId = document.querySelector('#nin')
@@ -26,17 +26,18 @@ var isEmailValid = (email) => {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 };
-//To check if a password is strong, which match specified pattern, you’ll also use a regular expression:
-var isPasswordSecure = (password) => {
-    var re = new RegExp("(?=.*[!@#\$%\^&\*])(?=.{8,})"); // this regex wil require the password to have atleast 8 characters and one special character
-    return re.test(password);
-};
+// //To check if a password is strong, which match specified pattern, you’ll also use a regular expression:
+// // var isPasswordSecure = (password) => {
+// //     var re = new RegExp("(?=.*[!@#\$%\^&\*])(?=.{8,})"); // this regex wil require the password to have atleast 8 characters and one special character
+// //     return re.test(password);
+// };
 var isNINtrue = (id) => {
     var re = new RegExp("(?=.*[A-Z])(?=.{8,})"); // this regex wil require the password to have atleast 8 characters and one special character
     return re.test(id);
 };
+// /^[0-9]+$/
 var isPhoneValid = (number) => {
-    var re = new RegExp("(/^[0-9]+$/)"); // this regex wil require the password to have atleast 8 characters and one special character
+    var re = new RegExp("/^[0-9]+$/"); // this regex wil require the password to have atleast 8 characters and one special character
     return re.test(number);
 };
 //Develop functions that show the error / success
@@ -100,7 +101,7 @@ var checkAge = () => {
     let valid = false;
     var dOb = dObEl.value.trim();
     if (!isRequired(dOb)) {
-        showError(dObEl, 'Date of birth cannot be blank and must be 18 years.');
+        showError(dObEl, 'Date of birth required');
     } else {
         showSuccess(dObEl);
         valid = true;
@@ -114,7 +115,7 @@ var checkIdNumber = () => {
     var nationalid = nId.value.trim();
     if (!isRequired(nId)) {
         showError(nId, '*ID number cannot be blank.');
-    } else if (!isNINtrue(nationalid) || nId.value !== 14) {
+    } else if (!isNINtrue(nationalid) && nId.value !== 14) {
         showError(nId, '*Invalid ID number');
     } else {
         showSuccess(nId);
@@ -132,9 +133,11 @@ var checkTel = () => {
     var phone = telEl.value.trim();
     if (isRequired(phone)) {
         showError(telEl, '');
-    } if(!isBetween(phone.length, min, max)) {
-        showError(telEl, `Telephone number must be either ${min} or ${max} characters.`)
-    } else if (!isPhoneValid(number)) {
+    } 
+    // if(!isBetween(phone.length, min, max)) {
+    // //     showError(telEl, `Telephone number must be either ${min} or ${max} characters.`)
+    // // } 
+    else if (!isPhoneValid(number)) {
         showError(telEl, 'Telephone number is ivalid.');
     }else {
         showSuccess(telEl);
@@ -157,38 +160,38 @@ var checkType = () => {
 };
 
 //Validate the password field
-var checkPassword = () => {
-    let valid = false;
-    var password = passwordEl.value.trim();
-    if (!isRequired(password)) {
-        showError(passwordEl, 'Password cannot be blank.');
-    } else if (!isPasswordSecure(password)) {
-        showError(passwordEl, 'Password must has at least 8 characters that include at least 1 special character in (!@#$%^&*)');
-    } else {
-        showSuccess(passwordEl);
-        valid = true;
-    }
+// var checkPassword = () => {
+//     let valid = false;
+//     var password = passwordEl.value.trim();
+//     if (!isRequired(password)) {
+//         showError(passwordEl, 'Password cannot be blank.');
+//     } else if (!isPasswordSecure(password)) {
+//         showError(passwordEl, 'Password must has at least 8 characters that include at least 1 special character in (!@#$%^&*)');
+//     } else {
+//         showSuccess(passwordEl);
+//         valid = true;
+//     }
 
-    return valid;
-};
-//Validate the confirm password field
-var checkConfirmPassword = () => {
-    let valid = false;
-    // check confirm password
-    var confirmPassword = confirmPasswordEl.value.trim();
-    var password = passwordEl.value.trim();
+//     return valid;
+// };
+// //Validate the confirm password field
+// var checkConfirmPassword = () => {
+//     let valid = false;
+//     // check confirm password
+//     var confirmPassword = confirmPasswordEl.value.trim();
+//     var password = passwordEl.value.trim();
 
-    if (!isRequired(confirmPassword)) {
-        showError(confirmPasswordEl, 'Please enter the password again');
-    } else if (password !== confirmPassword) {
-        showError(confirmPasswordEl, 'Confirm password does not match');
-    } else {
-        showSuccess(confirmPasswordEl);
-        valid = true;
-    }
+//     if (!isRequired(confirmPassword)) {
+//         showError(confirmPasswordEl, 'Please enter the password again');
+//     } else if (password !== confirmPassword) {
+//         showError(confirmPasswordEl, 'Confirm password does not match');
+//     } else {
+//         showSuccess(confirmPasswordEl);
+//         valid = true;
+//     }
 
-    return valid;
-};
+//     return valid;
+// };
 
 //modify button event handler
 form.addEventListener('submit', function (e) {
@@ -201,21 +204,21 @@ form.addEventListener('submit', function (e) {
         isTypeValid = checkType(),
         isTelValid = checkTel(),
         isdOb = checkAge(),
-        isIDValid = checkIdNumber(),
-        isPasswordValid = checkPassword(),
-        isConfirmPasswordValid = checkConfirmPassword();
+        isIDValid = checkIdNumber();
+        // isPasswordValid = checkPassword(),
+        // isConfirmPasswordValid = checkConfirmPassword();
 
     let isFormValid = isUsernameValid &&
         isEmailValid &&
         isTypeValid &&
         isTelValid &&
-        isPasswordValid &&
+        // isPasswordValid &&
         isIDValid &&
-        isdOb &&
-        isConfirmPasswordValid;
+        isdOb;
+        // isConfirmPasswordValid;
 
     // submit to the server if the form is valid
     if (isFormValid) {
-        window.location.href="log-in.html"
+        // window.location.href="log-in.html"
     }
 });
