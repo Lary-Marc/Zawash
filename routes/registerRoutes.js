@@ -16,7 +16,8 @@ const router = express.Router()
   
 router.get('/', (req, res) => {
     res.render('registration', {
-      title: 'Register of cars'
+      title: 'Register of cars',
+      routeName:"register"
     });
   });
   router.post("/",(req,res)=>{

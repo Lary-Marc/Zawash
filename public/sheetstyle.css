@@ -10,6 +10,29 @@
   background-color: #d4d9dbfb;
   background-repeat: no-repeat;
 }
+/* 
+.body2, .container-fluid.px-1.px-md-5.px-lg-1.px-xl-5.py-5.mx-auto{
+    
+    height: auto; 
+    margin:0 30px; 
+    background-size:cover;
+    
+    
+}
+.body2::before {    
+    content: "";
+    background:url('https://media.istockphoto.com/photos/tire-wash-picture-id174942860?k=6&m=174942860&s=612x612&w=0&h=oyvE9R7ApEl5HQ3w9gE8FgW9eJIbRUOC3UWZZ_SL5xo=');
+    background-size: cover;
+    position: absolute;
+    top: 55px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.3;
+    height: auto;
+} */
+
+
 div input {
   padding-left: 10px;
 }
@@ -183,12 +206,12 @@ a {
             box-shadow: 0 0 0 0.2rem rgb(255 255 255 / 25%) !important;
         } */
 
-.section {
+.container-fluid.px-1.px-md-5.px-lg-1.px-xl-5.py-5.mx-auto, .section {
   padding: 40px 0;
-  background: url(images/car-care-4993980_960_720.jpg);
+  background: url(images/istockphoto-174955124-612x612edit.jpg);
   background-size: cover;
   height: auto;
-  display: f;
+
 }
 
 h1,
@@ -204,7 +227,7 @@ h1 {
 
 #outer-div {
   padding: 0 0;
-  background-color: #091e3abd;
+  background-color: #091e3ae7;
   border-radius: 20px;
   height: auto;
   width: 50%;

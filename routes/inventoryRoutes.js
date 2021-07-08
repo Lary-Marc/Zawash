@@ -3,7 +3,8 @@ const router = express.Router()
 
   router.get('/', (req, res) => {
     res.render('inventory', {
-      title: 'Inventory'
+      title: 'Inventory',
+      routeName:"inventory"
     });
   });
   router.post("/",(req,res)=>{

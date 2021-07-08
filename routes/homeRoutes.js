@@ -3,7 +3,8 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
   res.render('login', {
-    title: 'Zawash'
+    title: 'Zawash',
+    routeName:"home"
   });
 });
 router.post("/",(req,res)=>{
@@ -13,7 +14,8 @@ router.post("/",(req,res)=>{
 
 router.get('/home', (req, res) => {
   res.render('index', {
-    title: 'Home'
+    title: 'Home',
+    routeName:"home"
   });
 });
 

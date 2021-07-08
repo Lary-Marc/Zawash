@@ -11,7 +11,7 @@ body {
   color: #222;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  background: rgb(8, 8, 31);
+  background: rgb(8 8 17);
   /* background-image: url("https://cdn.pixabay.com/photo/2016/05/17/03/50/washing-car-1397382__480.jpg"); */
 
 }
@@ -20,8 +20,8 @@ body {
   position: relative;
   margin: 8% auto;
   width: 670px;
-  height: 460px;
-  background: #FFF;
+  height: auto;
+  /* background: #FFF; */
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
@@ -41,7 +41,7 @@ h1 {
   font-weight: bolder;
   font-size: 32px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color: #32508E;
+  color: #3b6ed4;
   text-align: center;
 }
 h3 {
@@ -49,6 +49,7 @@ h3 {
   font-weight: 300;
   font-size: 17px;
   font-family: bold;
+  color: #e2e2e2;
 }
 
 input[type="email"],

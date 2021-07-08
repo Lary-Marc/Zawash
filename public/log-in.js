@@ -58,9 +58,9 @@ var checkEmail = () => {
     let valid = false;
     var email = emailEl.value.trim();
     if (!isRequired(email)) {
-        showError(emailEl, 'Email cannot be blank.');
+        showError(emailEl, 'Email Required');
     } else if (!isEmailValid(email)) {
-        showError(emailEl, 'Email is not valid.')
+        showError(emailEl, 'Email is invalid.')
     } else {
         showSuccess(emailEl);
         valid = true;
@@ -73,7 +73,7 @@ var checkPassword = () => {
     let valid = false;
     var password = passwordEl.value.trim();
     if (!isRequired(password)) {
-        showError(passwordEl, 'Password cannot be blank.');
+        showError(passwordEl, 'Password Required');
     } else if (!isPasswordSecure(password)) {
         showError(passwordEl, 'Password must has at least 8 characters that include at least 1 special character in (!@#$%^&*)');
     } else {

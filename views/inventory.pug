@@ -12,8 +12,16 @@ block content
                         div.form.offset-md-3(style="padding-top:20px;")
                             div.form-row(style="padding:5px 60px 0 10px;")
                                 div.col.form-group
-                                    h5(style="padding-bottom:5px;color:white;") Item Purchased 
-                                    input.form-control(name="item" id="item" style="width:92%;")
+                                    h5(style="padding-bottom:5px;color:white;") Expense 
+                                    select(name="item" id="item"  style="width:92%;")  
+                                        option(value="none" selected disabled hidden)   
+                                        option(value="") Electricity Bill
+                                        option(value="") Water Bill
+                                        option(value="") Detergent
+                                        option(value="") Maintenance
+                                        option(value="") New machine
+                                        option(value="") Scrubbing brush/Towel
+
                             div.form-row(style="padding:0px 10px;")
                                 h5(style="padding-bottom:5px; color:white;") Price
                                 div.input-group.form-field
