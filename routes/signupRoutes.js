@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   });
   router.post("/",(req,res)=>{
     console.log(req.body)
-    res.send("The data has been submitted")
+ 
   })
 
 

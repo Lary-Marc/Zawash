@@ -1,9 +1,9 @@
 
 
-var typeEl = document.querySelector('#type')
+var genderEl = document.querySelector('#gender')
 var usernameEl = document.querySelector('#username');
-var emailEl = document.querySelector('#email');
-
+var idEl = document.querySelector('#id');
+var residenceEl = document.querySelector('#residence');
 
 var dObEl = document.querySelector('#age');
 var form = document.querySelector('#signup')
@@ -21,25 +21,25 @@ var isRequired = value => value === '' ? false : true;
 var isRequire = value => value === 'none' ? false : true;
 //The following isBetween() function returns false if the length argumet is not between the min and max argument:
 var isBetween = (length, min, max) => length < min || length > max ? false : true;
-//To check the email is valid, you’ll use a regular expression:
-var isEmailValid = (email) => {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-};
-// //To check if a password is strong, which match specified pattern, you’ll also use a regular expression:
-// // var isPasswordSecure = (password) => {
-// //     var re = new RegExp("(?=.*[!@#\$%\^&\*])(?=.{8,})"); // this regex wil require the password to have atleast 8 characters and one special character
-// //     return re.test(password);
-// };
-var isNINtrue = (id) => {
-    var re = new RegExp("(?=.*[A-Z])(?=.{8,})"); // this regex wil require the password to have atleast 8 characters and one special character
+
+var isNINtrue = (nid) => {
+    var re = /^[A-Z]{3}[0-9A-Z]{8}$/ ;
+    return re.test(nid);
+};   
+var isIDValid = (id) => {
+    var re = /^ZWash-([0-9]{3})+$/ ; 
     return re.test(id);
 };
-// /^[0-9]+$/
 var isPhoneValid = (number) => {
-    var re = new RegExp("/^[0-9]+$/"); // this regex wil require the password to have atleast 8 characters and one special character
-    return re.test(number);
-};
+        var re = /^[0-9]+$/; 
+        return re.test(number);
+    }; 
+
+    var isNameValid = (number) => {
+        var re = /^[A-Z]([a-z])+$/; 
+        return re.test(number);
+    };   
+
 //Develop functions that show the error / success
 var showError = (input, message) => {
     // get the form-field element
@@ -68,12 +68,14 @@ var showSuccess = (input) => {
 var checkUsername = () => {
 
     let valid = false;
-    var min = 3,
+    var min = 8,
         max = 25;
     var username = usernameEl.value.trim();
 
     if (!isRequired(username)) {
-        showError(usernameEl, ' Username cannot be blank.');
+        showError(usernameEl, ' Required field');
+    }else if (!isNameValid(username)) {
+        showError(usernameEl, 'Incorrect Format')
     } else if (!isBetween(username.length, min, max)) {
         showError(usernameEl, `Username must be between ${min} and ${max} characters.`)
     } else {
@@ -82,16 +84,16 @@ var checkUsername = () => {
     }
     return valid;
 }
-//Validate the email field
-var checkEmail = () => {
+//Validate the id field
+var checkID = () => {
     let valid = false;
-    var email = emailEl.value.trim();
-    if (!isRequired(email)) {
-        showError(emailEl, 'Email cannot be blank.');
-    } else if (!isEmailValid(email)) {
-        showError(emailEl, 'Email is not valid.')
+    var id = idEl.value.trim();
+    if (!isRequired(id)) {
+        showError(idEl, 'Required field');
+    } else if (!isIDValid(id)) {
+        showError(idEl, 'Invalid ID')
     } else {
-        showSuccess(emailEl);
+        showSuccess(idEl);
         valid = true;
     }
     return valid;
@@ -101,7 +103,7 @@ var checkAge = () => {
     let valid = false;
     var dOb = dObEl.value.trim();
     if (!isRequired(dOb)) {
-        showError(dObEl, 'Date of birth required');
+        showError(dObEl, 'Required field');
     } else {
         showSuccess(dObEl);
         valid = true;
@@ -114,9 +116,9 @@ var checkIdNumber = () => {
     let valid = false;
     var nationalid = nId.value.trim();
     if (!isRequired(nId)) {
-        showError(nId, '*ID number cannot be blank.');
-    } else if (!isNINtrue(nationalid) && nId.value !== 14) {
-        showError(nId, '*Invalid ID number');
+        showError(nId, 'Required field');
+    } else if (!isNINtrue(nationalid)) {
+        showError(nId, 'Invalid ID number');
     } else {
         showSuccess(nId);
         valid = true;
@@ -131,14 +133,12 @@ var checkTel = () => {
     var min = 9,
         max = 10;
     var phone = telEl.value.trim();
-    if (isRequired(phone)) {
+    if (!isRequired(phone)) {
         showError(telEl, '');
     } 
-    // if(!isBetween(phone.length, min, max)) {
-    // //     showError(telEl, `Telephone number must be either ${min} or ${max} characters.`)
-    // // } 
-    else if (!isPhoneValid(number)) {
-        showError(telEl, 'Telephone number is ivalid.');
+    
+    else if (!isPhoneValid(phone)) {
+        showError(telEl, 'Telephone number is invalid.');
     }else {
         showSuccess(telEl);
         valid = true;
@@ -146,34 +146,32 @@ var checkTel = () => {
     return valid;
 }
 
-var checkType = () => {
+var checkGender = () => {
     let valid = false;
-    var typeE = typeEl.value.trim();
-    if (!isRequire(typeE)) {
-        showError(typeEl, 'Please select type of employee.');
+    var gender = genderEl.value.trim();
+    if (!isRequire(gender)) {
+        showError(genderEl, 'Please select Gender.');
     } else {
-        showSuccess(typeEl);
+        showSuccess(genderEl);
         valid = true;
     }
 
     return valid;
 };
 
-//Validate the password field
-// var checkPassword = () => {
-//     let valid = false;
-//     var password = passwordEl.value.trim();
-//     if (!isRequired(password)) {
-//         showError(passwordEl, 'Password cannot be blank.');
-//     } else if (!isPasswordSecure(password)) {
-//         showError(passwordEl, 'Password must has at least 8 characters that include at least 1 special character in (!@#$%^&*)');
-//     } else {
-//         showSuccess(passwordEl);
-//         valid = true;
-//     }
+//Validate the residence field
+var checkResidence = () => {
+    let valid = false;
+    var residence = residenceEl.value.trim();
+    if (!isRequired(residence)) {
+        showError(residenceEl, 'Required field');
+    } else {
+        showSuccess(residenceEl);
+        valid = true;
+    }
 
-//     return valid;
-// };
+    return valid;
+};
 // //Validate the confirm password field
 // var checkConfirmPassword = () => {
 //     let valid = false;
@@ -200,20 +198,20 @@ form.addEventListener('submit', function (e) {
 
     // validate forms
     let isUsernameValid = checkUsername(),
-        isEmailValid = checkEmail(),
-        isTypeValid = checkType(),
+        isIdValid = checkID(),
+        isGenderValid = checkGender(),
         isTelValid = checkTel(),
         isdOb = checkAge(),
-        isIDValid = checkIdNumber();
-        // isPasswordValid = checkPassword(),
+        isNIDValid = checkIdNumber();
+        isResidenceValid = checkResidence();
         // isConfirmPasswordValid = checkConfirmPassword();
 
     let isFormValid = isUsernameValid &&
-        isEmailValid &&
-        isTypeValid &&
+        isIdValid &&
+        isGenderValid &&
         isTelValid &&
-        // isPasswordValid &&
-        isIDValid &&
+        isResidenceValid &&
+        isNIDValid &&
         isdOb;
         // isConfirmPasswordValid;
 

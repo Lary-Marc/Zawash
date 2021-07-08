@@ -9,63 +9,82 @@ block content
                         header.card-header
                             h1.card-title ZaWash Washing Bay
                             h4.card-title Registration For Car Wash 
-                        form(method="POST" action='/registration')
+                        form(method="POST" action='/cartracking' id="register" name="register")
                             div.form-row
                                 div.col.form-group
-                            
                                     label
-                                    input.form-control(name="fullName" placeholder="Enter customer name" id="username")
-                                    small
+                                    input(name="fullName" placeholder="Enter customer name" id="username")
+                                    small(style="color:red;")
                                 div.col.form-group
                                     label
-                                    input.form-control(name="phone" placeholder="Customer telephone number" id="phone")
+                                    input(name="phone" placeholder="Customer telephone number" id="phone")
                                     small    
                             div.form-row 
+                                div.col.input-group.form-group(style="padding-bottom: 10px; padding-top: 5px;")
+                                    span.input-group-text#basic-addon1(style="color: blanchedalmond; background-color: rgb(0, 0, 0); margin-top: -10px; width: 50px; height: 38px; border-radius: 5px; border: 1px;") UGX
+                                    select(name="payment" id="payment" style="width: 83.5%; border-radius: 5px; height: 39px; border-radius:8px;")  
+                                        option(value="none" selected disabled hidden) Packages    
+                                        option(value="") 10000
+                                        option(value="") 15000
+                                        option(value="") 20000
+                                        option(value="") 5000
+                                    small(style="color: red;")  
                                 div.col.form-group
                                     label
-                                    input.form-control(name="residence" placeholder="Residence" id="residence")
-                                    small
-                                div.col.form-group
-                                    label
-                                    select.form-control(name="gender" id="gender")  
-                                        option(value="none" selected disabled hidden) Car Washed    
+                                    select(name="vehicle" id="vehicle")  
+                                        option(value="none" selected disabled hidden) To be Washed    
                                         option(value="") Small Car
                                         option(value="") Medium Car
-                                        option(value="") Lorry
+                                        option(value="") Truck
                                         option(value="") MotorCycle
                                         option(value="") Engine
                                         option(value="") Full Wash
-                                    small
+                                    small(style="color:red;")
                             div.form-row
                                 div.col.form-group
-                                    h5(style="padding-bottom:5px; color:#939393; margin-top:-10px;") Enter Date
-                                    input.form-control(type="date" name="date" id="date")
-                                    small
+                                    
+                                    input(type="text" name="date" id="date" placeholder="Enter Date" onfocus="(this.type='date')")
+                                    small(style="color:red;")
                                 div.col.form-group
-                                    h5(style="padding-bottom:5px; color:#939393; margin-top:-10px;") Enter Time
-                                    input.form-control(type="time" name="time" id="time")
+                                    
+                                    input(name="time" placeholder="Enter Date" id="time" onfocus="(this.type='time')")
+                                    small(style="color:red;")
+                            div.form-row
+                                div.col.form-group
+                                    label
+                                    input(name="numberPlate" placeholder="Number Plate/Engine number" id="numberPlate")
+                                    small(style="color:red;")
+                                div.col.form-group
+                                    label
+                                    input(name="carModel" placeholder="Enter Car Model")
                                     small
                             div.form-row
                                 div.col.form-group
                                     label
-                                    input.form-control(name="numberPlate" placeholder="Enter Number Plate" id="numberPlate")
-                                    small
-                                div.col.form-group
-                                    label
-                                    input.form-control(name="carModel" placeholder="Enter Car Model")
-                                    small
-                            div.form-row
-                                div.col.form-group
-                                    center
-                                        label
-                                        input.form-control(name="washer" placeholder="Enter Name of washer" id="washer" style="width:60%;")
-                                        small
-                            div.form-row
+                                    select(name="washer" id="washer")  
+                                        option(value="none" selected disabled hidden) Washer    
+                                        option(value="") Paul
+                                        option(value="") Collines
+                                        option(value="") Larry
+                                        option(value="") Mark
+                                        option(value="") Timo
+                                    small(style="color:red;")
+
+                                div.col.input-group.form-group(style="padding-bottom: 10px; padding-top: 5px;")
+                                    span.input-group-text#basic-addon1(style="color: blanchedalmond; background-color: rgb(0, 0, 0); margin-top: -10px; width: 50px; height: 38px; border-radius: 5px; border: 1px;") UGX
+                                    select(name="wage" id="wage" style="width: 83.5%; border-radius: 5px; height: 39px; border-radius:8px;")  
+                                        option(value="none" selected disabled hidden) Wages    
+                                        option(value="") 4000
+                                        option(value="") 3000
+                                        option(value="") 1500
+                                        
+                                    small(style="color: red;")   
+                            div.form-row(style="margin-bottom:-10px;")
 
                                 div.col.form-group
                                     center
-                                        button.btn.btn-danger.btn-lg Submit
-                            
+                                        button.btn.btn-danger.btn-lg(type="submit") Submit
+        script(src="register.js")                 
         
 
                             

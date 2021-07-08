@@ -1,9 +1,9 @@
 extends layout
 
 block content
-    body(style="background-color:rgb(6, 10, 19);")
+    body(style="background(6, 10, 19);")
         div.container-fluid.px-1.px-md-5.px-lg-1.px-xl-5.py-5.mx-auto(style="background-color:rgb(6, 10, 19); height: auto; margin:0 30px;")
-            form.form#signup(method="POST" action='/signup')
+            form.form#signup(method="POST" action='/register/employee')
                 
                 div.col-lg-6.offset-md-3(style="background-color: rgb(9, 16, 36); margin-top: -10px; margin-right: 16px; margin-bottom: 10px; padding-right: 10px;")
                 
@@ -33,11 +33,6 @@ block content
                             label.mb-1
                             input.mb-4(type="text" name="username" id="username" placeholder="Enter name")
 
-                        div.row.px-3.form-field
-                            small(style="color: rgb(243, 26, 26); padding-bottom:10px;")
-                            label.mb-1
-                            input.mb-4(type="text" name="email" id="email" placeholder="Enter a valid email address")
-
                         div.row(style="margin-bottom: 25px; padding-top: -10px;")
                             div.col
                                 div.row.px-3.form-field
@@ -50,17 +45,17 @@ block content
                                 div.row.px-3.form-field
                                   
                                     label.mb-1
-                                    input.mb-4(type="date" name="age" id="age" placeholder="Enter birth date" max="2003-12-01" style="height:38px;")
+                                    input.mb-4(type="text" name="age" id="age" placeholder="Enter birth date" max="2003-12-01" onfocus="(this.type='date')" style="height:38px;")
                                     small(style="color: rgb(243, 26, 26);margin-top:-20px;")
                             
                         div.row
-                            div.col(style="padding-bottom: 13px; margin-top: -10px;")
+                            div.col(style="padding-bottom: 13px; margin-top: -15px;")
                                 div.form-field
                                     label.mb-1
-                                    select(id="type" name="type")
-                                        option(value="none" selected disabled hidden) Employee Type
-                                        option(value="") Full-Time
-                                        option(value="") Part-Time
+                                    select(id="gender" name="gender")
+                                        option(value="none" selected disabled hidden) Gender
+                                        option(value="") M
+                                        option(value="") F
                                     small(style="color: red;")
                             
                             div.col(style="padding-bottom: 13px; margin-top: -15px;")
@@ -76,19 +71,18 @@ block content
                         div.row(style="padding-top: 13px;") 
                             div.col(style="padding-bottom: 13px; margin-top: -15px;")   
                                 div.form-field
-                                    small(style="color: rgb(243, 26, 26);")
+                                    
                                     label.mb-1
                                     input(type="text" name="residence" placeholder="Enter residence" id="residence")
-
-                            div.col(style="padding-bottom: 13px; margin-top: -15px;")
-                                div.form-field
                                     small(style="color: rgb(243, 26, 26);")
+
+                            div.col(style="padding-bottom: 13px; margin-top: -15px;")   
+                                div.form-field
+                                    
                                     label.mb-1
-                                    select(id="gender" name="gender")
-                                        option(value="none" selected disabled hidden) Gender
-                                        option(value="") Male
-                                        option(value="") Female
-                                        small(style="color: red;")
+                                    input(type="text" name="id" placeholder="Assign ID" id="id")
+                                    small(style="color: rgb(243, 26, 26);")
+                            
                         
                         div.row.mb-3.px-3(style="padding-top: 25px;")
                             input.btn.btn-primary(type="submit" value="Sign Up" style="border-radius:15px;")

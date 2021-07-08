@@ -2,6 +2,18 @@ const express = require('express')
 const router = express.Router()
 
 
+// router.get('/employee', (req, res) => {
+//     res.render('signup', {
+//       title: 'Register Employee'
+//     });
+//   });
+//   router.post("/employee",(req,res)=>{
+//     console.log(req.body)
+ 
+//   })
+
+
+  
 router.get('/', (req, res) => {
     res.render('registration', {
       title: 'Register of cars'
@@ -9,7 +21,7 @@ router.get('/', (req, res) => {
   });
   router.post("/",(req,res)=>{
     console.log(req.body)
-    res.send("The data has been submitted")
+    
 })
 
 

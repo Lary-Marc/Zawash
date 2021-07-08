@@ -1,6 +1,7 @@
 //(1. dependencies)
 const express = require('express'); 
 const path = require('path');
+require('dotenv').config();
 const registerRoutes = require('./routes/registerRoutes')
 const loginRoutes = require('./routes/loginRoutes')
 const signupRoutes = require('./routes/signupRoutes')
@@ -30,12 +31,17 @@ app.use('/registration',(req, res, next) => {
 
 
 //routes
-app.use('/registration', registerRoutes)
-app.use('/index', homeRoutes)
+app.use('/cartracking', registerRoutes)
+
+app.use('/', homeRoutes)
 app.use('/dashboard', dashRoutes)
-app.use('/inventory', inventoryRoutes)
-app.use('/login', loginRoutes)
 app.use('/signup', signupRoutes)
+app.use('/inventory', inventoryRoutes)
+
+
+app.get('/start', (req, res) => {
+  res.render('admin');
+});
 
 
 

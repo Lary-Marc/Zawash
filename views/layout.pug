@@ -5,7 +5,7 @@ html
     link(rel="stylesheet" type="text/css" href="/sheetstyle.css")
     title= title
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
-        a.navbar-brand(href='/dashboard') CarWash
+        a.navbar-brand(href='/home') ZaWash
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', 
         aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
             span.navbar-toggler-icon
@@ -13,13 +13,15 @@ html
         .collapse.navbar-collapse(id='navbarSupportedContent')
             ul.navbar-nav.mr-auto
                 li.nav-item.active
-                    a.nav-link(href='/index') Home
+                    a.nav-link(href='/dashboard') Report
                 
             ul.navbar-nav.float-right
                 li.nav-item
                     a.nav-link(href='/signup') Registration
                 li.nav-item
-                    a.nav-link(href='/login') LogIn 
+                    a.nav-link(href='/inventory') Inventory Capture 
+                li.nav-item
+                    a.nav-link(href='/cartracking') Car Tracking   
     block content
     footer
     div.bg.py-4(style="width: 52.5%; margin: 0 -20px 10px -20px; border-radius: 7px; margin-left: 70px; float:left;")

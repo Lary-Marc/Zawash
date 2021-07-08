@@ -6,16 +6,19 @@
 body {
   margin: 0;
   padding: 0;
-  background: rgb(1, 13, 39);
+  background-size: contain;
   font-size: 16px;
   color: #222;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  background: rgb(8, 8, 31);
+  /* background-image: url("https://cdn.pixabay.com/photo/2016/05/17/03/50/washing-car-1397382__480.jpg"); */
+
 }
 
 #login-box {
   position: relative;
-  margin: 3% auto;
+  margin: 8% auto;
   width: 670px;
   height: 460px;
   background: #FFF;
@@ -39,6 +42,7 @@ h1 {
   font-size: 32px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: #32508E;
+  text-align: center;
 }
 h3 {
   margin: 0 0 20px 0;
@@ -120,7 +124,7 @@ input[type="submit"]:active {
   padding: 40px;
   width: 300px;
   height: 460px;
-  background: url('https://cdn.pixabay.com/photo/2016/05/17/03/50/washing-car-1397382__480.jpg');
+  background: url('https://cdn.pixabay.com/photo/2019/01/28/17/00/car-wash-3960877__340.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 0 2px 2px 0;
@@ -130,7 +134,7 @@ input[type="submit"]:active {
   display: block;
   margin-bottom: 40px;
   font-size: 28px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   text-align: center;
   font-family:bold;
 }
