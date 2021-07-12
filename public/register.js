@@ -11,21 +11,16 @@ var numberplateEl = document.querySelector('#numberPlate')
 
 var form = document.querySelector('#register')
 
-form.addEventListener('submit', function (e) {
-    // prevent the form from submitting
-    e.preventDefault();
-
-});
 
 //The following isRequired() function returns true if the input argument is empty:
 var isRequired = value => value === '' ? false : true;
 var isRequire = value => value == 'none' ? false : true;
 //The following isBetween() function returns false if the length argumet is not between the min and max argument:
 var isBetween = (length, min, max) => length < min || length > max ? false : true;
-var isAmountValid = (number) => {
-    var re = /^[0-9]+$/ ; // this regex wil require the password to have atleast 8 characters and one special character
-    return re.test(number);
-};
+// var isAmountValid = (number) => {
+//     var re = /^[0-9]+$/ ; // this regex wil require the password to have atleast 8 characters and one special character
+//     return re.test(number);
+// };
 
 var isPlatetrue = (plate) => {
     var re = /^[A-Z]{3}[0-9A-Z]{4}$/ ;
@@ -121,9 +116,11 @@ var checkPayment = () => {
     var payment = payEl.value.trim();
     if (!isRequire(payment)) {
         showError(payEl, '*Required field');
-    } else if (!isAmountValid(payment)) {
-        showError(payEl, 'Invalid format')
-    }else {
+    } 
+    // else if (!isAmountValid(payment)) {
+    //     showError(payEl, 'Invalid format')
+    // }
+    else {
         showSuccess(payEl);
         valid = true;
     }
@@ -135,9 +132,11 @@ var checkWage = () => {
     var wage = wageEl.value.trim();
     if (!isRequire(wage)) {
         showError(wageEl, '*Required field');
-    } else if (!isAmountValid(wage)) {
-        showError(wageEl, 'Invalid format')
-    } else {
+    } 
+    // else if (!isAmountValid(wage)) {
+    //     showError(wageEl, 'Invalid format')
+    // }
+     else {
         showSuccess(wageEl);
         valid = true;
     }
@@ -176,8 +175,9 @@ var checkNumberPlate = () => {
 //modify button event handler
 form.addEventListener('submit', function (e) {
     // prevent the form from submitting
-    e.preventDefault();
-
+   
+    
+   
     // validate forms
     let isUsernameValid = checkUsername(),
         isTimeValid = checkTime(),
@@ -198,9 +198,9 @@ form.addEventListener('submit', function (e) {
         isPaymentValid &&
         isNumberPlateValid;
         
-
-    // submit to the server if the form is valid
-    if (isFormValid) {
-        // window.location.href="index.html"
+    if(!isFormValid){
+        e.preventDefault();
     }
+      
 });
+

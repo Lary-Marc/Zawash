@@ -1,13 +1,16 @@
 //(1. dependencies)
 const express = require('express'); 
 const path = require('path');
+const mongoose = require("mongoose")
 require('dotenv').config();
+
 const registerRoutes = require('./routes/registerRoutes')
-const loginRoutes = require('./routes/loginRoutes')
 const signupRoutes = require('./routes/signupRoutes')
 const inventoryRoutes = require('./routes/inventoryRoutes')
 const homeRoutes = require('./routes/homeRoutes')
 const dashRoutes = require('./routes/dashRoutes')
+
+
 //instatiate the express library and assign it to var app
 //(2. instatiations)
 const app = express(); 
@@ -15,6 +18,22 @@ const app = express();
 //3. configurations
 app.set('view engine', 'pug');
 app.set('views', './views');
+
+//mongodb connection
+mongoose.connect(process.env.DATABASE, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+mongoose.connection
+  .on('open', () => {
+    console.log('Mongoose connection open');
+  })
+  .on('error', (err) => {
+    console.log(`Connection error: ${err.message}`);
+  });
+
+
+
 
 
 // (4. middleware)
@@ -35,7 +54,7 @@ app.use('/cartracking', registerRoutes)
 
 app.use('/', homeRoutes)
 app.use('/dashboard', dashRoutes)
-app.use('/signup', signupRoutes)
+app.use('/washer', signupRoutes)
 app.use('/inventory', inventoryRoutes)
 
 
@@ -46,9 +65,9 @@ app.get('/start', (req, res) => {
 
 
 
-  app.get('/hello', (req, res) => {
-    res.render('register');
-  });
+  // app.get('/hello', (req, res) => {
+  //   res.render('register');
+  // });
   
 
 //routing

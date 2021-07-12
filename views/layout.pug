@@ -3,6 +3,7 @@ html
   head
     link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
     link(rel="stylesheet" type="text/css" href="/sheetstyle.css")
+    
     title= title
     
     nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
@@ -19,14 +20,14 @@ html
 
             ul.navbar-nav.float-right
                 li.nav-item
-                    a.nav-link(href='/inventory' class=routeName=="inventory"? 'active':'') Inventory Capture            
+                    a.nav-link(href='/inventory' class=routeName=="inventory"? 'active':'') Cost Monitor            
                 li.nav-item
-                    a.nav-link(href='/signup' class=routeName=="signup"? 'active':'') Registration
+                    a.nav-link(href='/washer' class=routeName=="washer"? 'active':'') Registration
                 
                 li.nav-item
                     a.nav-link(href='/cartracking' class=routeName=="register"? 'active':'') Car Tracking     
                 li.nav-item
-                    a.nav-link(href='/') Logout
+                    a.nav-link(href='/' style="color:blue;") Logout
                   
     block content
     footer

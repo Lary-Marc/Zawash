@@ -1,9 +1,15 @@
 extends layout
 
 block content
+           
     body
         div.container-fluid.px-1.px-md-5.px-lg-1.px-xl-5.py-5.mx-auto
-            form.form#signup(method="POST" action='/register/employee')
+        
+            if alert =='success'
+                div.alert.alert-success Washer added successfully
+            if alert =='error'
+                div.alert.alert-danger An error occured, failed to add washer
+            form.form#signup(name="signup" method="POST" action='/washer')
                 
                 div.col-lg-6.offset-md-3(style="background-color: rgb(9, 16, 36); margin-top: -10px; margin-right: 16px; margin-bottom: 10px; padding-right: 10px;")
                 
@@ -45,7 +51,7 @@ block content
                                 div.row.px-3.form-field
                                   
                                     label.mb-1
-                                    input.mb-4(type="text" name="age" id="age" placeholder="Enter birth date" max="2003-12-01" onfocus="(this.type='date')" style="height:38px;")
+                                    input.mb-4(type="text" name="dateOfBirth" id="age" placeholder="Enter birth date" max="2003-12-01" onfocus="(this.type='date')" style="height:38px;")
                                     small(style="color: rgb(243, 26, 26);margin-top:-20px;")
                             
                         div.row
@@ -54,8 +60,8 @@ block content
                                     label.mb-1
                                     select(id="gender" name="gender")
                                         option(value="none" selected disabled hidden) Gender
-                                        option(value="") M
-                                        option(value="") F
+                                        option M
+                                        option F
                                     small(style="color: red;")
                             
                             div.col(style="padding-bottom: 13px; margin-top: -15px;")
@@ -84,8 +90,11 @@ block content
                                     small(style="color: rgb(243, 26, 26);")
                             
                         
-                        div.row.mb-3.px-3(style="padding-top: 25px;")
-                            input.btn.btn-primary(type="submit" value="Sign Up" style="border-radius:15px;")
+                        div.form-row(style="margin-bottom:-10px;")
+
+                                div.col.form-group
+                                    center
+                                        button.btn.btn-primary.btn-lg(type="submit") Submit
         script(src="signup.js")
         script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')  
 

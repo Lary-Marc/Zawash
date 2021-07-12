@@ -1,5 +1,4 @@
 
-
 var genderEl = document.querySelector('#gender')
 var usernameEl = document.querySelector('#username');
 var idEl = document.querySelector('#id');
@@ -10,11 +9,6 @@ var form = document.querySelector('#signup')
 var nId = document.querySelector('#nin')
 var telEl = document.querySelector('#telephone')
 
-form.addEventListener('submit', function (e) {
-    // prevent the form from submitting
-    e.preventDefault();
-
-});
 
 //The following isRequired() function returns true if the input argument is empty:
 var isRequired = value => value === '' ? false : true;
@@ -36,7 +30,7 @@ var isPhoneValid = (number) => {
     }; 
 
     var isNameValid = (number) => {
-        var re = /^[A-Z]([a-z])+$/; 
+        var re = /^([a-zA-Z'-.]+ [a-zA-Z'-.]+)$/; 
         return re.test(number);
     };   
 
@@ -64,7 +58,7 @@ var showSuccess = (input) => {
     var error = formField.querySelector('small');
     error.textContent = '';
 }
-//Validate the username field
+// Validate the username field
 var checkUsername = () => {
 
     let valid = false;
@@ -91,7 +85,7 @@ var checkID = () => {
     if (!isRequired(id)) {
         showError(idEl, 'Required field');
     } else if (!isIDValid(id)) {
-        showError(idEl, 'Invalid ID')
+        showError(idEl, 'ID must start with "Zwash-"')
     } else {
         showSuccess(idEl);
         valid = true;
@@ -133,10 +127,9 @@ var checkTel = () => {
     var min = 9,
         max = 10;
     var phone = telEl.value.trim();
-    if (!isRequired(phone)) {
-        showError(telEl, '');
-    } 
-    
+    if (!isBetween(phone.length, min, max)) {
+        showError(telEl, `Telephone number is invalid.`)
+    }
     else if (!isPhoneValid(phone)) {
         showError(telEl, 'Telephone number is invalid.');
     }else {
@@ -172,30 +165,13 @@ var checkResidence = () => {
 
     return valid;
 };
-// //Validate the confirm password field
-// var checkConfirmPassword = () => {
-//     let valid = false;
-//     // check confirm password
-//     var confirmPassword = confirmPasswordEl.value.trim();
-//     var password = passwordEl.value.trim();
 
-//     if (!isRequired(confirmPassword)) {
-//         showError(confirmPasswordEl, 'Please enter the password again');
-//     } else if (password !== confirmPassword) {
-//         showError(confirmPasswordEl, 'Confirm password does not match');
-//     } else {
-//         showSuccess(confirmPasswordEl);
-//         valid = true;
-//     }
-
-//     return valid;
-// };
 
 //modify button event handler
 form.addEventListener('submit', function (e) {
     // prevent the form from submitting
-    e.preventDefault();
-
+   
+    
     // validate forms
     let isUsernameValid = checkUsername(),
         isIdValid = checkID(),
@@ -216,7 +192,10 @@ form.addEventListener('submit', function (e) {
         // isConfirmPasswordValid;
 
     // submit to the server if the form is valid
-    if (isFormValid) {
-        // window.location.href="log-in.html"
+    if (!isFormValid) {
+        e.preventDefault();
     }
+
 });
+
+
