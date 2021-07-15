@@ -1,0 +1,28 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title(style="color:black;") Register Manager
+    br
+    if alert == "success"
+        div.alert.alert-success Manager added successfully
+    if alert == "error"
+        div.alert.alert-danger An error occurred, failed to add manager
+    form(method="POST" action='/manager')
+        div.form-row(style="margin:0 150px;")
+            div.col.form-group
+                h5 First name 
+                input.form-control(name="firstname" style="width:80%;")
+            div.col.form-group
+                h5 Last name
+                input.form-control(name="lastname" style="width:80%;")
+            div.col.form-group
+                h5 User name
+                input.form-control(name="username" style="width:80%;")
+        div.form-row
+            div.col.form-group.offset-md-4
+                h5 Create Password
+                input.form-control(type="password" name="password" style="width:40%;")
+        div.form-row
+            div.col.form-group.offset-md-3
+                button.btn.btn-primary(style="width:50%;") Add manager
+                        

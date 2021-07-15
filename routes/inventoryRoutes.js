@@ -9,6 +9,7 @@ const Inventory = require('../models/Inventory')
       alert:req.query.alert
     });
   });
+  
   router.post("/", async(req,res)=>{
     try{
    const inventory = new Inventory(req.body);    

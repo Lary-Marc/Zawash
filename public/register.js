@@ -5,7 +5,7 @@ var dateEl = document.querySelector('#date');
 var timeEl = document.querySelector('#time');
 var vehicleEl = document.querySelector('#vehicle')
 var wageEl = document.querySelector('#wage')
-var payEl = document.querySelector('#payment')
+var packageEl = document.querySelector('#package')
 var washerEl = document.querySelector('#washer')
 var numberplateEl = document.querySelector('#numberPlate')
 
@@ -83,18 +83,18 @@ var checkDate = () => {
     return valid;
 }
 
-var checkVehicle = () => {
-    let valid = false;
-    var vehicle = vehicleEl.value.trim();
-    if (!isRequire(vehicle)) {
-        showError(vehicleEl, '*Please select an option');
-    } else {
-        showSuccess(vehicleEl);
-        valid = true;
-    }
+// var checkVehicle = () => {
+//     let valid = false;
+//     var vehicle = vehicleEl.value.trim();
+//     if (!isRequire(vehicle)) {
+//         showError(vehicleEl, '*Please select an option');
+//     } else {
+//         showSuccess(vehicleEl);
+//         valid = true;
+//     }
 
-    return valid;
-};
+//     return valid;
+// };
 
 //Validate the time field
 var checkTime = () => {
@@ -111,38 +111,38 @@ var checkTime = () => {
 };
 
 //Validate the residence field
-var checkPayment = () => {
+var checkPackage = () => {
     let valid = false;
-    var payment = payEl.value.trim();
-    if (!isRequire(payment)) {
-        showError(payEl, '*Required field');
+    var package = packageEl.value.trim();
+    if (!isRequire(package)) {
+        showError(packageEl, '*Required field');
     } 
     // else if (!isAmountValid(payment)) {
     //     showError(payEl, 'Invalid format')
     // }
     else {
-        showSuccess(payEl);
+        showSuccess(packageEl);
         valid = true;
     }
     return valid;
 };
 // // //Validate the nationality field
-var checkWage = () => {
-    let valid = false;
-    var wage = wageEl.value.trim();
-    if (!isRequire(wage)) {
-        showError(wageEl, '*Required field');
-    } 
-    // else if (!isAmountValid(wage)) {
-    //     showError(wageEl, 'Invalid format')
-    // }
-     else {
-        showSuccess(wageEl);
-        valid = true;
-    }
+// var checkWage = () => {
+//     let valid = false;
+//     var wage = wageEl.value.trim();
+//     if (!isRequire(wage)) {
+//         showError(wageEl, '*Required field');
+//     } 
+//     // else if (!isAmountValid(wage)) {
+//     //     showError(wageEl, 'Invalid format')
+//     // }
+//      else {
+//         showSuccess(wageEl);
+//         valid = true;
+//     }
 
-    return valid;
-};
+//     return valid;
+// };
 //Validate the car model field
 var checkWasher = () => {
     let valid = false;
@@ -183,9 +183,9 @@ form.addEventListener('submit', function (e) {
         isTimeValid = checkTime(),
         isWasherValid = checkWasher(),
         isDateValid = checkDate(),
-        isWageValid = checkWage(),
-        isPaymentValid = checkPayment(),
-        isVehicleValid = checkVehicle(),
+        
+        isPackageValid = checkPackage(),
+       
         isNumberPlateValid = checkNumberPlate();
        
 
@@ -193,9 +193,8 @@ form.addEventListener('submit', function (e) {
         isTimeValid &&
         isDateValid &&
         isWasherValid &&
-        isWageValid &&
-        isVehicleValid &&
-        isPaymentValid &&
+       
+        isPackageValid &&
         isNumberPlateValid;
         
     if(!isFormValid){

@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose');
 const router = express.Router()
 const Washer = require('../models/Washer')
 
@@ -28,6 +29,13 @@ router.get('/', (req, res) => {
     
   })
 
-
+  router.post('/delete-washer', async (req, res) => {
+    try {
+        await Washer.deleteOne({ _id: req.body.id })
+        res.redirect('back')
+    } catch (err) {
+        res.status(400).send("Unable to delete item in the database");
+    }
+})
 
 module.exports = router

@@ -6,8 +6,8 @@ const inventorySchema = new mongoose.Schema({
     trim: true,
   },
   price: {
-    type: String,
-    trim: true,
+    type: Number
+    
   },
   date: {
     type: Date,

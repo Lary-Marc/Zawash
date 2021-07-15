@@ -5,13 +5,17 @@ const carmonitorSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  date: {
+    type: Date,
+    
+  },
   phone: {
-    type: Number,
+    type: String,
     trim: true,
   },
   datetimeArrival: {
-    type: Date,
-    trim: true,
+    type: Date
+    
   },
 
   numberPlate: {
@@ -23,21 +27,26 @@ const carmonitorSchema = new mongoose.Schema({
     trim: true,
   },
   washer: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Washer",
+  },
+  
+  Color: {
     type: String,
     trim: true,
   },
-  wage: {
+  package: {
     type: String,
     trim: true,
   },
-  vehicle: {
-    type: String,
-    trim: true,
+  packagePrice: {
+    type: Number,
   },
-  payment: {
-    type: String,
-    trim: true,
+  washerFee: {
+    type: Number,
   }
+
+
 });
 
 

@@ -1,7 +1,7 @@
 
 
 // var usernameEl = document.querySelector('#username');
-var emailEl = document.querySelector('#email');
+var emailEl = document.querySelector('#username');
 var passwordEl = document.querySelector('#password');
 
 var form = document.querySelector('#login')
@@ -19,10 +19,10 @@ var isRequired = value => value === '' ? false : true;
 //The following isBetween() function returns false if the length argumet is not between the min and max argument:
 // var isBetween = (length, min, max) => length < min || length > max ? false : true;
 
-var isEmailValid = (email) => {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-};
+// var isEmailValid = (email) => {
+//     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return re.test(email);
+// };
 //To check if a password is strong, which match specified pattern, you’ll also use a regular expression:
 var isPasswordSecure = (password) => {
     var re = new RegExp("(?=.*[!@#\$%\^&\*])(?=.{8,})"); // this regex wil require the password to have atleast 8 characters and one special character
@@ -59,9 +59,11 @@ var checkEmail = () => {
     var email = emailEl.value.trim();
     if (!isRequired(email)) {
         showError(emailEl, 'Email Required');
-    } else if (!isEmailValid(email)) {
-        showError(emailEl, 'Email is invalid.')
-    } else {
+    } 
+    // else if (!isEmailValid(email)) {
+    //     showError(emailEl, 'Email is invalid.')
+    // } 
+    else {
         showSuccess(emailEl);
         valid = true;
     }
@@ -101,6 +103,6 @@ form.addEventListener('submit', function (e) {
 
     // submit to the server if the form is valid
     if (isFormValid) {
-     window.location.href="/home"
+     window.location.href="/"
     }
 });

@@ -1,0 +1,49 @@
+extends layout
+block content
+    header.card-header
+        h4.card-title(style="color:black;") Car Washer Details
+    br
+    nav
+    #nav-tab.nav.nav-tabs.navbar-dark.bg-light(role='tablist' style="margin:0 170px; background-color: #e3f2fd;")
+        a#nav-profile-tab.nav-item.nav-link(href='/dashboard' style="color:black;") Washer Payout
+        a#nav-contact-tab.nav-item.nav-link(href='/dashboard/expenses-report' style="color:black;")  Expense Report
+        a#nav-contact-tab.nav-item.nav-link(href='/dashboard/collection' style="color:black;")  Collection Report
+        a#nav-profile-tab.nav-item.nav-link.active(href='/dashboard/washerDetails') Washer Details
+        a#nav-profile-tab.nav-item.nav-link(href='/dashboard/parked' style="color:black;") Vehicles In Bay
+    #nav-tabContent.tab-content
+    br
+    .container(style='padding-top: 20px;')
+    
+        .row
+            .col
+                table.table.table-bordered 
+                    thead(style='background-color: black; color: white;')
+                        tr
+                            th Full Name 
+                            th NIN
+                            th Date of Birth
+                            th Phone number
+                            th Gender
+                            th Place of residence
+                            th Work ID
+                            th
+                    tbody
+                        if users.length
+                            each user in users
+                                tr
+                                    td #{user.username}
+                                    td #{user.nin}
+                                    td #{moment(user.dateOfBirth).format('DD/MM/YYYY') }
+                                    td #{user.telephone}
+                                    td #{user.gender}
+                                    td #{user.residence}
+                                    td #{user.id}
+                                    td
+                                        form(method="post" action='/washer/delete-washer')
+                                            input(type="hidden", placeholder="", name="id", value=user._id)
+                                            button.btn.btn-primary.btn-block(type="submit") Delete
+    
+     
+
+        
+                

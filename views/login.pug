@@ -1,47 +1,47 @@
 doctype html
 html
-  head
-    link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
-    title= title
-    link(rel="stylesheet" type="text/css" href="/sign.css")
-  body
-    #login-box.col-lg-8
-      .left
-        strong
-          h1 ZaWash Washing Bay
-        h3 log In to continue
-        form#login(action='/login' method='post')
-          div
-            small(style="color:red;")
-            input(type='email' name='email' placeholder='E-mail' id="email")
-            
-          div
-            small(style="color:red;")
-            input(type='password' name='password' placeholder='Password' id="password")
-            
-          div.g-3.align-items-left
-            div.mb-3
-                div.form-check
-                    input(class="form-check-input" type="checkbox" id="disabledFieldsetCheck" style="width:25px; box-shadow:none;")
-                    h6(class="form-check-label" for="disabledFieldsetCheck"
-                            style="padding-left: 10px; display:inline; color: rgba(0, 0, 0, 0.596); color:white;") Remember me
-                        
-            div
-                span(id="passwordHelpInline" class="form-text")
-                    a(href="" style="margin-right: 40px ;") Forgot Password?
-                   
+	head
+		link(rel="stylesheet", href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+		title= title
+		link(rel="stylesheet" type="text/css" href="/sign.css")
+	body
+		#login-box.col-lg-8
+			.left
+				strong
+					h1 ZaWash Washing Bay
+					h3 log In to continue
+				form#login(action='/login' method='post')
+					div
+						small(style="color:red;")
+						input(type='email' name='username' placeholder='Username' id="username")
 
-          button(class="btn btn-success" role="submit" style="margin-top: 20px;") LogIn
-            a(href="/register/carmornitor")
+					div
+						small(style="color:red;")
+						input(type='password' name='password' placeholder='Password' id="password")
 
-      .right
-        span.loginwith
-          | Log In with
-          br
-          | social network
-        button.social-signup.facebook Sign up with Facebook
-        button.social-signup.linkedin Sign up with LinkedIn
-        button.social-signup.twitter Sign up with Twitter
-        button.social-signup.google Sign up with Google+
-      .or OR
-    script(src="log-in.js")
+					div.g-3.align-items-left
+						div.mb-3
+							div.form-check
+								input(class="form-check-input" type="checkbox" id="disabledFieldsetCheck" style="width:25px; box-shadow:none;")
+								h6(class="form-check-label" for="disabledFieldsetCheck"
+									style="padding-left: 10px; display:inline; color: rgba(0, 0, 0, 0.596); color:white;") Remember me
+
+						div
+							span(id="passwordHelpInline" class="form-text")
+								a(href="" style="margin-right: 40px ;") Forgot Password?
+
+
+					button(class="btn btn-success" role="submit" style="margin-top: 20px;") LogIn
+						a(href="/register/carmornitor")
+
+			.right
+				span.loginwith
+					| Log In with
+					br
+					| social network
+				button.social-signup.facebook Sign up with Facebook
+				button.social-signup.linkedin Sign up with LinkedIn
+				button.social-signup.twitter Sign up with Twitter
+				button.social-signup.google Sign up with Google+
+			.or OR
+		script(src="log-in.js")

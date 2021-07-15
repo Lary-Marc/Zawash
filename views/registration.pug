@@ -1,9 +1,7 @@
 extends layout
 
 block content
-    body.body
-                    
-                            
+    body.body             
         div.section
                     
             div.row.justify-content-center
@@ -27,26 +25,28 @@ block content
                                     input(name="phone" placeholder="Customer telephone number" id="phone")
                                     small    
                             div.form-row 
-                                div.col.input-group.form-group(style="padding-bottom: 10px; padding-top: 5px;")
-                                    span.input-group-text#basic-addon1(style="color: blanchedalmond; background-color: rgb(0, 0, 0); margin-top: -10px; width: 50px; height: 38px; border-radius: 5px; border: 1px;") UGX
-                                    select(name="payment" id="payment" style="width: 83.5%; border-radius: 5px; height: 39px; border-radius:8px;")  
+                                div.col.form-group(style="padding-bottom: 10px; padding-top: 5px;")
+                                   
+                                    select(name="package" id="package" style=" border-radius:8px;")  
                                         option(value="none" selected disabled hidden) Packages    
-                                        option 10000
-                                        option 15000
-                                        option 20000
-                                        option 5000
+                                        option(value="smallcar")  Small cars(10,000/=)
+                                        option(value="mediumcar") Medium(15,000/=)
+                                        option(value="fullwash") Full wash(20,000/=)
+                                        option(value="bodaboda") Boda-boda(5,000/=)
+                                        option(value="engine") Engine(10,000/=)
+                                        option(value="truck") Truck(20,000/=)
                                     small(style="color: red;")  
                                 div.col.form-group
                                     label
-                                    select(name="vehicle" id="vehicle")  
-                                        option(value="none" selected disabled hidden) To be Washed    
-                                        option Small Car
-                                        option Medium Car
-                                        option Truck
-                                        option MotorCycle
-                                        option Engine
-                                        option Full Wash
-                                    small(style="color:red;")
+                                    select(name="color" id="color")  
+                                        option(value="none" selected disabled hidden) Vehicle Color   
+                                        option Black
+                                        option Red/Maroon
+                                        option White
+                                        option Blue/Lavender
+                                        option Grey
+                                        option Silver
+                                    
                             div.form-row
                                 div.col.form-group
                                     
@@ -66,23 +66,15 @@ block content
                                     input(name="carModel" placeholder="Enter Car Model")
                                     small
                             div.form-row
-                                div.col.form-group
+                                div.col.form-group.offset-md-2
                                     label
-                                    select(name="washer" id="washer")  
+                                    select(name="washer" id="washer" style="width:80%;")  
                                         each washer in washers
                                             option(value="none" selected disabled hidden) Washer    
                                             option(value=washer._id) #{washer.username}
                                     small(style="color:red;")
 
-                                div.col.input-group.form-group(style="padding-bottom: 10px; padding-top: 5px;")
-                                    span.input-group-text#basic-addon1(style="color: blanchedalmond; background-color: rgb(0, 0, 0); margin-top: -10px; width: 50px; height: 38px; border-radius: 5px; border: 1px;") UGX
-                                    select(name="wage" id="wage" style="width: 83.5%; border-radius: 5px; height: 39px; border-radius:8px;")  
-                                        option(value="none" selected disabled hidden) Wages    
-                                        option 4000
-                                        option 3000
-                                        option 1500
-                                        
-                                    small(style="color: red;")   
+                                 
                             div.form-row(style="margin-bottom:-10px;")
 
                                 div.col.form-group

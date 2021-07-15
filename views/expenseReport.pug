@@ -1,19 +1,19 @@
 extends layout
-
 block content
     header.card-header
-        h4.card-title(style="color:black;") Car Washer Payout
+        h4.card-title(style="color:black;") Expenses Report
     br
     nav
     #nav-tab.nav.nav-tabs.navbar-dark.bg-light(role='tablist' style="margin:0 170px; background-color: #e3f2fd;")
-        a#nav-profile-tab.nav-item.nav-link.active(href='/dashboard' ) Washer Payout
-        a#nav-contact-tab.nav-item.nav-link(href='/dashboard/expenses-report' style="color:black;")  Expense Report
+        a#nav-profile-tab.nav-item.nav-link(href='/dashboard' style="color:black;") Washer Payout
+        a#nav-contact-tab.nav-item.nav-link.active(href='/dashboard/expenses-report')  Expense Report
         a#nav-contact-tab.nav-item.nav-link(href='/dashboard/collection' style="color:black;")  Collection Report
         a#nav-profile-tab.nav-item.nav-link(href='/dashboard/washerDetails' style="color:black;") Washer Details
         a#nav-profile-tab.nav-item.nav-link(href='/dashboard/parked' style="color:black;") Vehicles In Bay
     #nav-tabContent.tab-content
     br
-    form.search(action='/dashboard')
+
+    form.search(action='/dashboard/expenses-report')
         div.form-row
             div.col-md-6
                 input.form-control(style="width:45%; margin-left:50%;" type="date" name="searchdate" value=defaultDate)
@@ -24,24 +24,20 @@ block content
     
         .row
             .col
-                table.table.table
+                table.table.table-bordered 
                     thead.thead-dark(style='background-color: black; color: white;')
                         tr
-                            
-                            th Washer Name
-                            th Number of cars
-                            th Payout Amount
+                            th Date of Entry
+                            th Item
+                            th Amount
+                            th
                     tbody
-                    if washers.length
-                        each washer in washers
+                    if expenses.length
+                        each expense in expenses
                             tr
-                                td #{washer.details[0].username }
-                                td #{washer.count }
-                                td #{washer.totalPayout }
+                                td #{moment(expense.date).format('DD-MM-YYYY')}
+                                td #{expense.item}
+                                td #{expense.price}
                         tr
-                            th(colspan=2) Total Payout 
-                            td #{new Intl.NumberFormat().format(sumPayout.totalPayoutPerDay)}
-                                
-    
-                                                           
-                            
+                            th(colspan=2) Total Expenses
+                            td #{new Intl.NumberFormat().format(total.totalExpense)}
