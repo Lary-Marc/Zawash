@@ -18,10 +18,8 @@ const managerSchema = new mongoose.Schema({
         required: "Please provide user name",
         unique: true,
         trim: true,
-      },
-    password: {
-        type: String
-          }
+      }
+    
 
   });
   managerSchema.plugin(passportLocalMongoose);

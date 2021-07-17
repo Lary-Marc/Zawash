@@ -1,47 +1,48 @@
 extends layout
 
 block content
-    header.card-header
-        h4.card-title(style="color:black;") Car Washer Payout
-    br
-    nav
-    #nav-tab.nav.nav-tabs.navbar-dark.bg-light(role='tablist' style="margin:0 170px; background-color: #e3f2fd;")
-        a#nav-profile-tab.nav-item.nav-link.active(href='/dashboard' ) Washer Payout
-        a#nav-contact-tab.nav-item.nav-link(href='/dashboard/expenses-report' style="color:black;")  Expense Report
-        a#nav-contact-tab.nav-item.nav-link(href='/dashboard/collection' style="color:black;")  Collection Report
-        a#nav-profile-tab.nav-item.nav-link(href='/dashboard/washerDetails' style="color:black;") Washer Details
-        a#nav-profile-tab.nav-item.nav-link(href='/dashboard/parked' style="color:black;") Vehicles In Bay
-    #nav-tabContent.tab-content
-    br
-    form.search(action='/dashboard')
-        div.form-row
-            div.col-md-6
-                input.form-control(style="width:45%; margin-left:50%;" type="date" name="searchdate" value=defaultDate)
-            div.col-md-6
-                input.btn.btn-primary.btn-block(style="width:60%;" type="submit")
-    br
-    .container(style='padding-top: 20px;')
-    
-        .row
-            .col
-                table.table.table
-                    thead.thead-dark(style='background-color: black; color: white;')
-                        tr
-                            
-                            th Washer Name
-                            th Number of cars
-                            th Payout Amount
-                    tbody
-                    if washers.length
-                        each washer in washers
+    body(style="background-image: url('https://cdn.pixabay.com/photo/2016/11/18/23/04/garage-1837338__340.jpg');  background-size: cover;")
+        header.card-header
+            h4.card-title(style="color:black;  background: white; margin: 0 450px; padding:10px 0;") Car Washer Payout
+        br
+        nav
+        #nav-tab.nav.nav-tabs.navbar-dark.bg-light(role='tablist' style="margin:0 170px; background-color: #e3f2fd;")
+            a#nav-profile-tab.nav-item.nav-link.active(href='/dashboard' ) Washer Payout
+            a#nav-contact-tab.nav-item.nav-link(href='/dashboard/expenses-report' style="color:black;")  Expense Report
+            a#nav-contact-tab.nav-item.nav-link(href='/dashboard/collection' style="color:black;")  Collection Report
+            a#nav-profile-tab.nav-item.nav-link(href='/dashboard/washerDetails' style="color:black;") Washer Details
+            a#nav-profile-tab.nav-item.nav-link(href='/dashboard/parked' style="color:black;") Vehicles In Bay
+        #nav-tabContent.tab-content
+        br
+        form.search(action='/dashboard')
+            div.form-row
+                div.col-md-6
+                    input.form-control(style="width:45%; margin-left:50%;" type="date" name="searchdate" value=defaultDate)
+                div.col-md-6
+                    input.btn.btn-primary.btn-block(style="width:60%;" type="submit")
+        br
+        .container(style='padding-top: 20px;')
+        
+            .row
+                .col
+                    table.table.table(style='background-color: white;')
+                        thead.thead-dark(style='background-color: black; color: white;')
                             tr
-                                td #{washer.details[0].username }
-                                td #{washer.count }
-                                td #{washer.totalPayout }
-                        tr
-                            th(colspan=2) Total Payout 
-                            td #{new Intl.NumberFormat().format(sumPayout.totalPayoutPerDay)}
                                 
-    
-                                                           
-                            
+                                th Washer Name
+                                th Number of cars
+                                th Payout Amount
+                        tbody
+                        if washers.length
+                            each washer in washers
+                                tr
+                                    td #{washer.details[0].username }
+                                    td #{washer.count }
+                                    td #{washer.totalPayout }
+                            tr
+                                th(colspan=2) Total Payout 
+                                td #{new Intl.NumberFormat().format(sumPayout.totalPayoutPerDay)}
+                                    
+        
+                                                            
+                                

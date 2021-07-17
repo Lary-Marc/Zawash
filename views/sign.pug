@@ -1,0 +1,54 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='mark.css')
+    title Document
+body  
+    .cont
+        form.form.sign-in(action='/login' method='POST' style="margin-top:40px;")
+            h1 ZaWash Washing Bay
+            
+            h3(style="text-align: center;padding-top:10px; font-weight:lighter;") login to continue
+            label
+                span Username
+                input(type='text' name="username")
+            label
+                span Password
+                input(type='password' name="password")
+            button.submit(type='submit') Log In
+        .sub-cont
+            .img
+                .img__text.m--up
+                    h2 New staff?
+                    p Add new Manager to gain access
+                .img__text.m--in
+                    h2 One of us?
+                    p If you already have an account, just log in. We&apos;ve missed you!
+                .img__btn
+                    span.m--up Add Manager
+                    span.m--in Log In
+            form.form.sign-up(action='/manager' method='POST')
+                h2 Time to feel like home,
+                label
+                    span First Name
+                    input(type='text' name="firstname")
+                label
+                    span Last Name
+                    input(type='text' name="lastname")
+                label
+                    span Username
+                    input(type='text' name="username")
+                label
+                    span Password
+                    input(type='password' name="password")
+                button.submit(type='submit') Add Manager
+    
+    //- <a href="https://dribbble.com/shots/3306190-Login-Registration-form" target="_blank" class="icon-link">
+    //- <img src="http://icons.iconarchive.com/icons/uiconstock/socialmedia/256/Dribbble-icon.png">
+    //- </a>
+    //- <a href="https://twitter.com/NikolayTalanov" target="_blank" class="icon-link icon-link--twitter">
+    //- <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png">
+    //- </a>
+    script(src='sign.js')

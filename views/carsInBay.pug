@@ -1,41 +1,42 @@
 extends layout
 block content
-    header.card-header
-        h4.card-title(style="color:black;") Vehicles in Bay Report
-    br
-    nav
-    #nav-tab.nav.nav-tabs.navbar-dark.bg-light(role='tablist' style="margin:0 170px; background-color: #e3f2fd;")
-        a#nav-profile-tab.nav-item.nav-link(href='/dashboard' style="color:black;") Washer Payout
-        a#nav-contact-tab.nav-item.nav-link(href='/dashboard/expenses-report' style="color:black;")  Expense Report
-        a#nav-contact-tab.nav-item.nav-link(href='/dashboard/collection' style="color:black;")  Collection Report
-        a#nav-profile-tab.nav-item.nav-link(href='/dashboard/washerDetails' style="color:black;") Washer Details
-        a#nav-profile-tab.nav-item.nav-link.active(href='/dashboard/parked') Vehicles In Bay
+    body(style="background-image: url('https://cdn.pixabay.com/photo/2016/11/18/23/04/garage-1837338__340.jpg');  background-size: cover;")
+        header.card-header
+            h4.card-title(style="color:black;  background: white; margin: 0 450px; padding:10px 0;") Vehicles in Bay Report
+        br
+        nav
+        #nav-tab.nav.nav-tabs.navbar-dark.bg-light(role='tablist' style="margin:0 170px; background-color: #e3f2fd;")
+            a#nav-profile-tab.nav-item.nav-link(href='/dashboard' style="color:black;") Washer Payout
+            a#nav-contact-tab.nav-item.nav-link(href='/dashboard/expenses-report' style="color:black;")  Expense Report
+            a#nav-contact-tab.nav-item.nav-link(href='/dashboard/collection' style="color:black;")  Collection Report
+            a#nav-profile-tab.nav-item.nav-link(href='/dashboard/washerDetails' style="color:black;") Washer Details
+            a#nav-profile-tab.nav-item.nav-link.active(href='/dashboard/parked') Vehicles In Bay
 
-    #nav-tabContent.tab-content
-    br
+        #nav-tabContent.tab-content
+        br
 
-    form.search(action='/dashboard/parked')
-        div.form-row
-            div.col-md-6
-                input.form-control(style="width:45%; margin-left:50%;" type="date" name="searchdate" value=defaultDate)
-            div.col-md-6
-                input.btn.btn-primary.btn-block(style="width:60%;" type="submit")
-    br
-    .container(style='padding-top: 20px;')
-    
-        .row
-            .col
-                table.table.table-bordered 
-                    thead(style='background-color: black; color: white;')
-                        tr
-                           
-                            th Vehicle
-                            th Number of cars
-                    tbody(style="width:30%;")
-                    if parkings.length
-                        each parking in parkings
+        form.search(action='/dashboard/parked')
+            div.form-row
+                div.col-md-6
+                    input.form-control(style="width:45%; margin-left:50%;" type="date" name="searchdate" value=defaultDate)
+                div.col-md-6
+                    input.btn.btn-primary.btn-block(style="width:60%;" type="submit")
+        br
+        .container(style='padding-top: 20px;')
+        
+            .row
+                .col
+                    table.table.table-bordered(style='background-color: white;') 
+                        thead(style='background-color: black; color: white;')
                             tr
-                                
-                                td #{parking._id }
-                                td #{parking.count}
-                       
+                            
+                                th Vehicle
+                                th Number of cars
+                        tbody(style="width:30%;")
+                        if parkings.length
+                            each parking in parkings
+                                tr
+                                    
+                                    td #{parking._id }
+                                    td #{parking.count}
+                        

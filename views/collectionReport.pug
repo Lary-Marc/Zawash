@@ -1,43 +1,44 @@
 extends layout
 block content
-    header.card-header
-        h4.card-title(style="color:black;") Collections Report
-    br
-    nav
-    #nav-tab.nav.nav-tabs.navbar-dark.bg-light(role='tablist' style="margin:0 170px; background-color: #e3f2fd;" )
-        a#nav-profile-tab.nav-item.nav-link(href='/dashboard' style="color:black;") Washer Payout
-        a#nav-contact-tab.nav-item.nav-link(href='/dashboard/expenses-report' style="color:black;")  Expense Report
-        a#nav-contact-tab.nav-item.nav-link.active(href='/dashboard/collection')  Collection Report
-        a#nav-profile-tab.nav-item.nav-link(href='/dashboard/washerDetails' style="color:black;") Washer Details
-        a#nav-profile-tab.nav-item.nav-link(href='/dashboard/parked' style="color:black;") Vehicles In Bay
+    body(style="background-image: url('https://cdn.pixabay.com/photo/2016/11/18/23/04/garage-1837338__340.jpg');  background-size: cover;")
+        header.card-header
+            h4.card-title(style="color:black;  background: white; margin: 0 450px; padding:10px 0;") Collections Report
+        br
+        nav
+        #nav-tab.nav.nav-tabs.navbar-dark.bg-light(role='tablist' style="margin:0 170px; background-color: #e3f2fd;" )
+            a#nav-profile-tab.nav-item.nav-link(href='/dashboard' style="color:black;") Washer Payout
+            a#nav-contact-tab.nav-item.nav-link(href='/dashboard/expenses-report' style="color:black;")  Expense Report
+            a#nav-contact-tab.nav-item.nav-link.active(href='/dashboard/collection')  Collection Report
+            a#nav-profile-tab.nav-item.nav-link(href='/dashboard/washerDetails' style="color:black;") Washer Details
+            a#nav-profile-tab.nav-item.nav-link(href='/dashboard/parked' style="color:black;") Vehicles In Bay
 
-    #nav-tabContent.tab-content
-    br
+        #nav-tabContent.tab-content
+        br
 
-    form.search(action='/dashboard/collection')
-        div.form-row
-            div.col-md-6
-                input.form-control(style="width:45%; margin-left:50%;" type="date" name="searchdate" value=defaultDate)
-            div.col-md-6
-                input.btn.btn-primary.btn-block(style="width:60%;" type="submit")
-    br
-    .container(style='padding-top: 20px;')
-    
-        .row
-            .col
-                table.table.table-bordered 
-                    thead.thead-dark(style='background-color: black; color: white;')
-                        tr
-                            th Date of Arrival
-                            th Vehicle
-                            th Amount
-                    tbody
-                    if collections.length
-                        each collection in collections
+        form.search(action='/dashboard/collection')
+            div.form-row
+                div.col-md-6
+                    input.form-control(style="width:45%; margin-left:50%;" type="date" name="searchdate" value=defaultDate)
+                div.col-md-6
+                    input.btn.btn-primary.btn-block(style="width:60%;" type="submit")
+        br
+        .container(style='padding-top: 20px;')
+        
+            .row
+                .col
+                    table.table.table-bordered(style='background-color: white;') 
+                        thead.thead-dark(style='background-color: black; color: white;')
                             tr
-                                td #{moment(collection.datetimeArrival).format('DD-MM-YYYY hh:mm')}
-                                td #{collection.numberPlate}
-                                td #{collection.packagePrice}
-                        tr
-                            th(colspan=2) Total Collections
-                            td #{new Intl.NumberFormat().format(total.totalCollection)}
+                                th Date of Arrival
+                                th Vehicle
+                                th Amount
+                        tbody
+                        if collections.length
+                            each collection in collections
+                                tr
+                                    td #{moment(collection.datetimeArrival).format('DD-MM-YYYY hh:mm')}
+                                    td #{collection.numberPlate}
+                                    td #{collection.packagePrice}
+                            tr
+                                th(colspan=2) Total Collections
+                                td #{new Intl.NumberFormat().format(total.totalCollection)}
