@@ -1,6 +1,6 @@
 
 
-var usernameEl = document.querySelector('#username');
+var carModelEl = document.querySelector('#carModel');
 var dateEl = document.querySelector('#date');
 var timeEl = document.querySelector('#time');
 var vehicleEl = document.querySelector('#vehicle')
@@ -23,7 +23,7 @@ var isBetween = (length, min, max) => length < min || length > max ? false : tru
 // };
 
 var isPlatetrue = (plate) => {
-    var re = /^[A-Z]{3}[0-9A-Z]{4}$/ ;
+    var re = /^[A-Z]{3}[0-9]{3}[A-Z]{1}$/ ;
     return re.test(plate);
 };  
 
@@ -53,19 +53,17 @@ var showSuccess = (input) => {
     error.textContent = '';
 }
 //Validate the username field
-var checkUsername = () => {
+var checkCarModel = () => {
 
     let valid = false;
-    var min = 3,
-        max = 25;
-    var username = usernameEl.value.trim();
+    
+    var model = carModelEl.value.trim();
 
-    if (!isRequired(username)) {
-        showError(usernameEl, '*Required field');
-    } else if (!isBetween(username.length, min, max)) {
-        showError(usernameEl, `*Username must be between ${min} and ${max} characters.`)
-    } else {
-        showSuccess(usernameEl);
+    if (!isRequired(model)) {
+        showError(carModelEl, '*Required field');
+    } 
+     else {
+        showSuccess(carModelEl);
         valid = true;
     }
     return valid;
@@ -82,19 +80,6 @@ var checkDate = () => {
     }
     return valid;
 }
-
-// var checkVehicle = () => {
-//     let valid = false;
-//     var vehicle = vehicleEl.value.trim();
-//     if (!isRequire(vehicle)) {
-//         showError(vehicleEl, '*Please select an option');
-//     } else {
-//         showSuccess(vehicleEl);
-//         valid = true;
-//     }
-
-//     return valid;
-// };
 
 //Validate the time field
 var checkTime = () => {
@@ -117,33 +102,14 @@ var checkPackage = () => {
     if (!isRequire(package)) {
         showError(packageEl, '*Required field');
     } 
-    // else if (!isAmountValid(payment)) {
-    //     showError(payEl, 'Invalid format')
-    // }
     else {
         showSuccess(packageEl);
         valid = true;
     }
     return valid;
 };
-// // //Validate the nationality field
-// var checkWage = () => {
-//     let valid = false;
-//     var wage = wageEl.value.trim();
-//     if (!isRequire(wage)) {
-//         showError(wageEl, '*Required field');
-//     } 
-//     // else if (!isAmountValid(wage)) {
-//     //     showError(wageEl, 'Invalid format')
-//     // }
-//      else {
-//         showSuccess(wageEl);
-//         valid = true;
-//     }
 
-//     return valid;
-// };
-//Validate the car model field
+//Validate the car washer field
 var checkWasher = () => {
     let valid = false;
     var washer = washerEl.value.trim();
@@ -179,7 +145,7 @@ form.addEventListener('submit', function (e) {
     
    
     // validate forms
-    let isUsernameValid = checkUsername(),
+    let isCarModelValid = checkCarModel(),
         isTimeValid = checkTime(),
         isWasherValid = checkWasher(),
         isDateValid = checkDate(),
@@ -189,11 +155,10 @@ form.addEventListener('submit', function (e) {
         isNumberPlateValid = checkNumberPlate();
        
 
-    let isFormValid = isUsernameValid &&
+    let isFormValid = isCarModelValid &&
         isTimeValid &&
         isDateValid &&
         isWasherValid &&
-       
         isPackageValid &&
         isNumberPlateValid;
         

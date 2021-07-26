@@ -2,10 +2,10 @@ extends layout
 block content
     body(style="background-image: url('https://cdn.pixabay.com/photo/2016/11/18/23/04/garage-1837338__340.jpg');  background-size: cover;")
         header.card-header
-            h4.card-title(style="color:black;  background: white; margin: 0 450px; padding:10px 0;") Collections Report
+            h4.card-title(style="color:black;  background: #e6f0f8; margin: 0 500px; padding:10px 0;") Collections Report
         br
         nav
-        #nav-tab.nav.nav-tabs.navbar-dark.bg-light(role='tablist' style="margin:0 170px; background-color: #e3f2fd;" )
+        #nav-tab.nav.nav-tabs.navbar-dark.bg-light(role='tablist' style="margin:0 170px; background-color: #41b0ff;" )
             a#nav-profile-tab.nav-item.nav-link(href='/dashboard' style="color:black;") Washer Payout
             a#nav-contact-tab.nav-item.nav-link(href='/dashboard/expenses-report' style="color:black;")  Expense Report
             a#nav-contact-tab.nav-item.nav-link.active(href='/dashboard/collection')  Collection Report
@@ -14,13 +14,24 @@ block content
 
         #nav-tabContent.tab-content
         br
-
+        if alert =='success'
+            div.alert.alert-success Vehicle information added successfully
+        if alert =='error'
+            div.alert.alert-danger An error occured, failed to add information 
         form.search(action='/dashboard/collection')
-            div.form-row
-                div.col-md-6
-                    input.form-control(style="width:45%; margin-left:50%;" type="date" name="searchdate" value=defaultDate)
-                div.col-md-6
-                    input.btn.btn-primary.btn-block(style="width:60%;" type="submit")
+            
+            div.form-row(style="margin-left:100px;")
+                div.col-md-3
+                    input.form-control(style="width:75%; margin-left:30%;" placeholder="Select a Day" onfocus="(this.type='date')" type="type" name="searchdate" value=defaultDate)
+                strong
+                    span(style=" margin-left:60px; padding: 10px 15px; color:white; background:black; width:50px; height:50px; border-radius:100%; ") -OR-
+                div.col-md-3
+                    input.form-control(style="width:75%; margin-left:20%;" type="text" name="start_date" placeholder=" Select Start Date" onfocus="(this.type='date')")
+                div.col-md-3
+                    input.form-control(style="width:75%; margin-left:20%;" type="text" name="end_date" placeholder="Select End date" onfocus="(this.type='date')")
+            div.row
+                div.col-md-6.offset-md-4
+                    input.btn.btn-primary.btn-block(style="width:60%; margin-top:20px;" type="submit")
         br
         .container(style='padding-top: 20px;')
         
@@ -30,15 +41,17 @@ block content
                         thead.thead-dark(style='background-color: black; color: white;')
                             tr
                                 th Date of Arrival
-                                th Vehicle
+                                th Model
+                                th Number Plate
                                 th Amount
                         tbody
                         if collections.length
                             each collection in collections
                                 tr
                                     td #{moment(collection.datetimeArrival).format('DD-MM-YYYY hh:mm')}
+                                    td #{collection.carModel}
                                     td #{collection.numberPlate}
                                     td #{collection.packagePrice}
                             tr
-                                th(colspan=2) Total Collections
+                                th(colspan=3) Total Collections
                                 td #{new Intl.NumberFormat().format(total.totalCollection)}

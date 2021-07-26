@@ -63,17 +63,17 @@ block content
                                     small(style="color:red;")
                                 div.col.form-group
                                     label
-                                    input(name="carModel" placeholder="Enter Car Model")
-                                    small
+                                    input(name="carModel" id="carModel" placeholder="Enter Car Model")
+                                    small(style="color:red;")
                             div.form-row
-                                div.col.form-group.offset-md-2
+                                div.col.form-group.offset-md-3
                                     label
-                                    select(name="washer" id="washer" style="width:80%;")  
+                                    select(name="washer" id="washer" style="width:70%;")  
                                         each washer in washers
                                             option(value="none" selected disabled hidden) Washer    
                                             option(value=washer._id) #{washer.username}
                                     small(style="color:red;")
-
+                                    
                                  
                             div.form-row(style="margin-bottom:-10px;")
 

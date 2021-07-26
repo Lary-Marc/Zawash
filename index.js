@@ -42,7 +42,7 @@ mongoose.connection
   });
 
 // (4. middleware)
-//body-parser handles reading data from the form element
+
 app.use("/static", express.static("public"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
@@ -62,7 +62,7 @@ var loginChecker = function (req, res, next) {
 };
 app.use(loginChecker);
 // custom middleware to log the time of the current request
-app.use("/registration", (req, res, next) => {
+app.use("/cartracking", (req, res, next) => {
   console.log("A new request received at " + Date.now());
   next();
 });
@@ -78,6 +78,9 @@ app.use("/washer", signupRoutes);
 app.use("/inventory", inventoryRoutes);
 
 //routing
+
+
+
 
 // this helps create a server defining the port, console.log will run whenever you listen to the port
 app.listen(3600, () => {

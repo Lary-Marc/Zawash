@@ -4,8 +4,9 @@ head
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel='stylesheet' href='mark.css')
-    title Document
+    title Login
 body  
+
     .cont
         form.form.sign-in(action='/login' method='POST' style="margin-top:40px;")
             h1 ZaWash Washing Bay
@@ -29,20 +30,20 @@ body
                 .img__btn
                     span.m--up Add Manager
                     span.m--in Log In
-            form.form.sign-up(action='/manager' method='POST')
+            form.form.sign-up(action='/manager' method='POST' class="row g-3 needs-validation" novalidate="")
                 h2 Time to feel like home,
                 label
                     span First Name
-                    input(type='text' name="firstname")
+                    input(type='text' name="firstname" required="")
                 label
                     span Last Name
-                    input(type='text' name="lastname")
+                    input(type='text' name="lastname" required="")
                 label
                     span Username
-                    input(type='text' name="username")
+                    input(type='text' name="username" required="")
                 label
                     span Password
-                    input(type='password' name="password")
+                    input(type='password' name="password" required="")
                 button.submit(type='submit') Add Manager
     
     //- <a href="https://dribbble.com/shots/3306190-Login-Registration-form" target="_blank" class="icon-link">
